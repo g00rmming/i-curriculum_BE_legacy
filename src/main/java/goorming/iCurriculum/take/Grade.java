@@ -1,4 +1,4 @@
-package goorming.iCurriculum.mapping.take;
+package goorming.iCurriculum.take;
 
 
 import lombok.Getter;
@@ -16,7 +16,7 @@ public enum Grade {
     D_PLUS(1.5),
     D_ZERO(1.0),
     FAIL(0.0),
-    PASS(-1.0)//사용시 주의 하세요
-    ;
+    PASS(-1.0); //사용시 주의 하세요
+
     private final Double score;
 }

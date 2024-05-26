@@ -2,25 +2,15 @@ package goorming.iCurriculum.member;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
-import goorming.iCurriculum.mapping.take.Take;
-import goorming.iCurriculum.member.stat.MemberStat;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import goorming.iCurriculum.take.Take;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,7 +22,6 @@ import org.hibernate.validator.constraints.Length;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "member")
 public class Member extends BaseEntity {
 
     @Id
@@ -52,16 +41,18 @@ public class Member extends BaseEntity {
 
     private Integer joinYear;
 
-    @Min(value = 0) @Max(value = 8)
+    @Min(value = 0)
+    @Max(value = 8)
     private Integer completeTerm;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Take> takeList = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private MemberStat memberStat;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Take> takeList = new ArrayList<>();
+
 }

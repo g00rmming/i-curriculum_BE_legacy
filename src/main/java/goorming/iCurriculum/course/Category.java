@@ -1,8 +1,5 @@
 package goorming.iCurriculum.course;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public enum Category {
     MAJOR_ESSENTIAL,
     MAJOR_SELECTIVE,
