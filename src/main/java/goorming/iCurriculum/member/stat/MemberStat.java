@@ -2,13 +2,7 @@ package goorming.iCurriculum.member.stat;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.member.Member;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,13 +13,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "member_stat")
 public class MemberStat extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_stat_id")
     private Long id;
-
 
     private Integer totalCredit;
     private Integer majorCredit;
@@ -37,8 +30,25 @@ public class MemberStat extends BaseEntity {
     private Integer coreSix;
     private Integer creative;
 
-    @OneToOne
-    private Member member;
+    @Column(name = "grade_1_1")
+    private Double grade11;
+    @Column(name = "grade_1_2")
+    private Double grade12;
+    @Column(name = "grade_2_1")
+    private Double grade21;
+    @Column(name = "grade_2_2")
+    private Double grade22;
+    @Column(name = "grade_3_1")
+    private Double grade31;
+    @Column(name = "grade_3_2")
+    private Double grade32;
+    @Column(name = "grade_4_1")
+    private Double grade41;
+    @Column(name = "grade_4_2")
+    private Double grade42;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
 }
