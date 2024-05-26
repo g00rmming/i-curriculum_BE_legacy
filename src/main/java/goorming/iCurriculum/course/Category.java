@@ -4,6 +4,15 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum Category {
-
-//채워주세요
+    MAJOR_ESSENTIAL,
+    MAJOR_SELECTIVE,
+    GENERAL_EDU_ESSENTIAL,
+    GENERAL_SELECTIVE,
+    GENERAL_CORE_ONE,
+    GENERAL_CORE_TWO,
+    GENERAL_CORE_THREE,
+    GENERAL_CORE_FOUR,
+    GENERAL_CORE_FIVE,
+    GENERAL_CORE_SIX,
+    GENERAL_CREATIVE;
 }
