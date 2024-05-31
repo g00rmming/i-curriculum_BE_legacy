@@ -1,4 +1,4 @@
-package goorming.iCurriculum.curriculumdiagram;
+package goorming.iCurriculum.curriculum;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
