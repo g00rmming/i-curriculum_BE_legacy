@@ -1,7 +1,6 @@
-package goorming.iCurriculum.essentialcourse;
+package goorming.iCurriculum.curriculum;
 
 import goorming.iCurriculum.common.BaseEntity;
-import goorming.iCurriculum.course.Course;
 import goorming.iCurriculum.department.Department;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,18 +20,16 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EssentialCourse extends BaseEntity {
+public class CurriculumTable extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "essential_course_id")
+    @Column(name = "curriculum_table_id")
     private Long id;
 
-    private Boolean isMajor;
+    private String url;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    private Integer year;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
