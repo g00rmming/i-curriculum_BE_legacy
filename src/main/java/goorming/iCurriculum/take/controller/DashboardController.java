@@ -1,7 +1,7 @@
 package goorming.iCurriculum.take.controller;
 
 import goorming.iCurriculum.common.ApiResponse;
-import goorming.iCurriculum.take.entity.dto.TakeResponseDTO;
+import goorming.iCurriculum.take.entity.dto.TakeResponseDTO.DashboardDTO;
 import goorming.iCurriculum.take.service.TakeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,9 +38,9 @@ public class DashboardController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<TakeResponseDTO.MemberStatsDTO> findMemberStat(@RequestParam Long memberId) {
-        TakeResponseDTO.MemberStatsDTO memberStatsDTO = takeService.findMemberStat(memberId);
+    public ApiResponse<DashboardDTO> findMemberStat(@RequestParam Long memberId) {
+        DashboardDTO dashboardDTO = takeService.findMemberStat(memberId);
 
-        return ApiResponse.onSuccess(memberStatsDTO);
+        return ApiResponse.onSuccess(dashboardDTO);
     }
 }

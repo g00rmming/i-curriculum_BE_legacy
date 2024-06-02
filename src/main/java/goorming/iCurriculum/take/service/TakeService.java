@@ -10,6 +10,7 @@ import goorming.iCurriculum.essentialcourse.EssentialCourseRepository;
 import goorming.iCurriculum.member.Member;
 import goorming.iCurriculum.member.MemberRepository;
 import goorming.iCurriculum.take.entity.Take;
+import goorming.iCurriculum.take.entity.dto.TakeResponseDTO.DashboardDTO;
 import goorming.iCurriculum.take.exception.TakeException;
 import goorming.iCurriculum.take.repository.TakeRepository;
 import goorming.iCurriculum.take.entity.dto.TakeRequestDTO;
@@ -95,7 +96,7 @@ public class TakeService {
     }
 
     @Transactional
-    public TakeResponseDTO.MemberStatsDTO findMemberStat(Long memberId) {
+    public DashboardDTO findMemberStat(Long memberId) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
