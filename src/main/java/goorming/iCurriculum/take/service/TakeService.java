@@ -94,7 +94,6 @@ public class TakeService {
         takeRepository.deleteById(takeId);
     }
 
-    // todo : jpql 로 미이수중 top 5 뽑기, 이 함수 완성 시키기
     @Transactional
     public TakeResponseDTO.MemberStatsDTO findMemberStat(Long memberId) {
         Member member = memberRepository.findById(memberId)
