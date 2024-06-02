@@ -3,6 +3,7 @@ package goorming.iCurriculum.member;
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
 import goorming.iCurriculum.take.entity.Take;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -58,5 +59,6 @@ public class Member extends BaseEntity {
     public Boolean isNotSWConvergence(){
         return joinYear < 2021;
     }
+
 
 }
