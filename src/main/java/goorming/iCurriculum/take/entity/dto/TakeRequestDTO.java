@@ -38,4 +38,21 @@ public class TakeRequestDTO {
         @NotEmpty
         private String grade;
     }
+    @Getter
+    @Builder
+    public static class SearchUntakenCourseDTO{
+        @NotNull
+        private SearchOptionDTO searchOptionDTO;
+    }
+    @Getter
+    @Builder
+    public static class SearchOptionDTO{
+        private String courseName;
+        private String courseCode;
+        private Boolean isMajorEssential;
+        private Boolean isMajorSelective;
+        private Boolean isGeneralEssential;
+        private Boolean isGeneralCore;
+        private Boolean isGeneralSelective;
+    }
 }
