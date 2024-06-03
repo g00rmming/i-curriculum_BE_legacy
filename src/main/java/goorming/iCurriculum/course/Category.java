@@ -17,7 +17,7 @@ public enum Category {
     GENERAL_CORE_FOUR("핵심교양 4"),
     GENERAL_CORE_FIVE("핵심교양 5"),
     GENERAL_CORE_SIX("핵심교양 6"),
-    GENERAL_CREATIVE("창의 영역")
+    GENERAL_CREATIVE("창의영역")
     ;
     private final String name;
 
