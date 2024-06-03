@@ -103,6 +103,7 @@ public class TakeController {
 
         return ApiResponse.onSuccess("삭제 성공");
     }
+
     // 수강내역 전체조회
     @GetMapping("/take")
     @Operation(summary = "기이수 과목 전체 조회 API", description =
@@ -112,11 +113,12 @@ public class TakeController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<TakeResponseDTO.TakenCourseListDTO> findTakenList(@RequestParam Long memberId){
+    public ApiResponse<TakeResponseDTO.TakenCourseListDTO> findTakenList(@RequestParam Long memberId) {
         TakeResponseDTO.TakenCourseListDTO takenCourseListDTO = takeService.findTakeList(memberId);
 
         return ApiResponse.onSuccess(takenCourseListDTO);
     }
+
     // 미수강내역 전체조회
     @GetMapping("/untake")
     @Operation(summary = "미이수 과목 전체 조회 API", description =
@@ -126,10 +128,27 @@ public class TakeController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam Long memberId){
+    public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam Long memberId) {
         TakeResponseDTO.UntakenCourseListDTO untakenCourseListDTO = takeService.findUntakenList(memberId);
 
         return ApiResponse.onSuccess(untakenCourseListDTO);
+    }
+
+
+    @GetMapping("/untake/search")
+    @Operation(summary = "미이수 검색 API", description =
+            "request]\n param : 사용자 id, 검색 옵션")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
+                    content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+    })
+    public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> searchUntakenCourse(
+            @RequestParam Long memberId,
+            @RequestBody TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO) {
+        TakeResponseDTO.UntakenCourseListDTO searchResultListDTO = takeService.searchUntakenCourses(memberId,
+                searchUntakenCourseDTO);
+        return ApiResponse.onSuccess(searchResultListDTO);
     }
 
 }
