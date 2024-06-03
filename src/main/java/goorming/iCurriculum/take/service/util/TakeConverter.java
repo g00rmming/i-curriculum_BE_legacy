@@ -7,8 +7,6 @@ import goorming.iCurriculum.take.entity.Grade;
 import goorming.iCurriculum.take.entity.Take;
 import goorming.iCurriculum.take.entity.dto.TakeRequestDTO;
 import goorming.iCurriculum.take.entity.dto.TakeResponseDTO;
-
-import goorming.iCurriculum.take.entity.dto.TakeResponseDTO.DashboardDTO;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -77,7 +75,7 @@ public class TakeConverter {
                 .build();
     }
 
-    public static DashboardDTO convertToMemberStats(
+    public static TakeResponseDTO.DashboardDTO convertToMemberStats(
             List<Take> takeList,
             TakeResponseDTO.TakenCategoryDTO majorEssentialDTO,
             TakeResponseDTO.TakenCategoryDTO majorSelectiveDTO,
@@ -89,7 +87,7 @@ public class TakeConverter {
                 .mapToInt(Take::getTakenTerm) // takenTerm을 int로 매핑
                 .max() // 최대값 계산
                 .orElse(0);
-        return DashboardDTO.builder()
+        return TakeResponseDTO.DashboardDTO.builder()
                 .totalTakenCredit(takeList.stream()
                         .mapToInt(take -> take.getCourse().getCredit())
                         .sum())
