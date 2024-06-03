@@ -52,5 +52,12 @@ public class Course extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+    public void takeThisCourse(){
+        takenNumber++;
+    }
+
+    public void dropThisCourse(){
+        takenNumber--;
+    }
 
 }
