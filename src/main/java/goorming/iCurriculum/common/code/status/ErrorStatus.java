@@ -14,7 +14,21 @@ public enum ErrorStatus implements BaseErrorCode {
 
     BAD_REQUEST(HttpStatus.BAD_REQUEST, "COMMON400", "잘못된 요청입니다."),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "COMMON401", "로그인 인증이 필요합니다."),
-    FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다.");
+    FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
+
+    MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 존재하지 않습니다."),
+    //수강
+    TAKE_NOT_FOUND(HttpStatus.BAD_REQUEST, "TAKE4001", "수강내역이 존재하지 않습니다."),
+    TAKE_DUPLICATED(HttpStatus.BAD_REQUEST, "TAKE4002", "중복된 수강내역 입니다."),
+    TAKE_BINDING_FAIL(HttpStatus.BAD_REQUEST, "TAKE4003", "파라미터 바인딩 실패"),
+
+    //수업
+    COURSE_NOT_FOUND(HttpStatus.BAD_REQUEST, "COURSE4001", "수업이 존재하지 않습니다."),
+
+
+    ;
+
+
 
     private final HttpStatus httpStatus;
     private final String code;

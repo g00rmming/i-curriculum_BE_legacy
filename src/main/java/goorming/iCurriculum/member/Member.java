@@ -2,7 +2,7 @@ package goorming.iCurriculum.member;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
-import goorming.iCurriculum.take.Take;
+import goorming.iCurriculum.take.entity.Take;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -54,5 +54,9 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Take> takeList = new ArrayList<>();
+
+    public Boolean isNotSWConvergence(){
+        return joinYear < 2021;
+    }
 
 }
