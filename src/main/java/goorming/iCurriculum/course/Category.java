@@ -27,4 +27,5 @@ public enum Category {
                 .findFirst()
                 .orElse(Category.GENERAL_SELECTIVE);
     }
+
 }

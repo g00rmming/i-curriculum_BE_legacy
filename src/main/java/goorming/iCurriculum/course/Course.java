@@ -41,6 +41,7 @@ public class Course extends BaseEntity {
 
     private Category category;
 
+
     @Min(value = 1)
     @Max(value = 4)
     private Integer credit;
@@ -59,5 +60,8 @@ public class Course extends BaseEntity {
     public void dropThisCourse(){
         takenNumber--;
     }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 
 }
