@@ -29,7 +29,7 @@ public class CurriculumTable extends BaseEntity {
 
     private String url;
 
-    private Integer year;
+    private Integer joinYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
