@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriculumMap extends BaseEntity {
+public class CurriculumTable extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class CurriculumMap extends BaseEntity {
 
     private String url;
 
-    private Integer year;
+    private Integer joinYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
