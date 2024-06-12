@@ -17,4 +17,4 @@ import org.springframework.data.repository.query.Param;
         @Query("SELECT c FROM Course c WHERE c.id NOT IN :ids AND c.code LIKE concat('%', :searchword, '%')")
         List<Course> findCourseNotInIdsByCourseCode(@Param("ids") List<Long> ids, @Param("searchword") String searchWord);
 
-    }
+}
