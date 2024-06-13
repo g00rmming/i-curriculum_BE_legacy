@@ -36,7 +36,7 @@ public class MemberResponseDTO {
     @AllArgsConstructor
     //내 정보 조회 DTO
     public static class MyInfoDTO {
-        String username;
+        String clientId;
         String nickname;
         String department_name;
         Integer completeTerm;

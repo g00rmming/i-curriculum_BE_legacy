@@ -33,7 +33,7 @@ public class MemberConverter {
 
     public static MemberResponseDTO.MyInfoDTO myInfoDTO(Member member) {
         return MemberResponseDTO.MyInfoDTO.builder()
-                .username(member.getClientId())
+                .clientId(member.getClientId())
                 .nickname(member.getNickname())
                 .department_name(member.getDepartment().getName())
                 .completeTerm(member.getCompleteTerm())
