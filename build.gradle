@@ -30,6 +30,12 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation 'com.h2database:h2'
 
+
+	//Spring Security
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//AWS Java SDK for Amazon Cognito
+	implementation group: 'software.amazon.awssdk', name: 'cognitoidentityprovider', version: '2.25.64'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
@@ -37,6 +43,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mockito:mockito-core'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	//jjwt
+//	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+//	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
+//	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 }
 
 tasks.named('test') {
