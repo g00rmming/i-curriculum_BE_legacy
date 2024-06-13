@@ -39,7 +39,7 @@ public class Course extends BaseEntity {
     @Max(value = 4)
     private Integer level;
 
-    private String category;
+    private Category category;
 
     @Min(value = 1)
     @Max(value = 4)
@@ -47,8 +47,17 @@ public class Course extends BaseEntity {
 
     private Boolean isOpen;
 
+    private Integer takenNumber;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+    public void takeThisCourse(){
+        takenNumber++;
+    }
+
+    public void dropThisCourse(){
+        takenNumber--;
+    }
 
 }

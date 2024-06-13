@@ -1,6 +1,7 @@
-package goorming.iCurriculum.take;
+package goorming.iCurriculum.take.entity;
 
 import goorming.iCurriculum.common.BaseEntity;
+import goorming.iCurriculum.course.Category;
 import goorming.iCurriculum.course.Course;
 import goorming.iCurriculum.member.Member;
 import jakarta.persistence.Column;
@@ -46,5 +47,15 @@ public class Take extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    private Category category;
+    public Integer getTakenLevel() {
+        return (takenTerm + 1) / 2;
+    }
+    public Take update(Integer takenTerm, String grade){
+        this.takenTerm = takenTerm;
+        this.grade = Grade.getGrade(grade);
+        return this;
+    }
 
 }

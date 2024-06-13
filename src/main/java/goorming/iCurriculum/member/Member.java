@@ -2,7 +2,7 @@ package goorming.iCurriculum.member;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
-import goorming.iCurriculum.take.Take;
+import goorming.iCurriculum.take.entity.Take;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -11,15 +11,13 @@ import jakarta.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member extends BaseEntity {
@@ -32,7 +30,7 @@ public class Member extends BaseEntity {
     @Length(min = 4, max = 20)
     private String clientId;
 
-    @Length(min = 8, max = 20)
+    @Length(min = 8)
     private String password;
 
     @Length(max = 20)
@@ -54,5 +52,9 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Take> takeList = new ArrayList<>();
+
+    public Boolean isNotSWConvergence(){
+        return joinYear < 2021;
+    }
 
 }
