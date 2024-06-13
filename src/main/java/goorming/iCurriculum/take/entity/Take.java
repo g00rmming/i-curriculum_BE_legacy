@@ -48,13 +48,14 @@ public class Take extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @Enumerated(EnumType.STRING)
     private Category category;
     public Integer getTakenLevel() {
         return (takenTerm + 1) / 2;
     }
-    public Take update(Integer takenTerm, String grade){
+    public Take update(Integer takenTerm, Grade grade){
         this.takenTerm = takenTerm;
-        this.grade = Grade.getGrade(grade);
+        this.grade = grade;
         return this;
     }
 

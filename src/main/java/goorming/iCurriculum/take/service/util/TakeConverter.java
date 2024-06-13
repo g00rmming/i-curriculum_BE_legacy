@@ -97,7 +97,8 @@ public class TakeConverter {
                         .mapToInt(take -> take.getCourse().getCredit())
                         .sum())
                 .totalGrade(takeList.stream()
-                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급을 int로 매핑
+                        .filter(take -> !take.getGrade().equals(Grade.PASS))
+                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급을 double로 매핑
                         .average() // 평균 계산
                         .orElse(0.0))
                 .majorGrade(takeList.stream()
@@ -107,6 +108,7 @@ public class TakeConverter {
                         .average() // 평균 계산
                         .orElse(0.0))
                 .previousTotalGrade(takeList.stream()
+                        .filter(take -> !take.getGrade().equals(Grade.PASS))
                         .filter(take -> !take.getTakenTerm().equals(currentTerm))
                         .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급을 int로 매핑
                         .average() // 평균 계산
