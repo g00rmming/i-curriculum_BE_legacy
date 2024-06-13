@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TakeController {
     private final TakeService takeService;
 
-    // 수강과목 추가
+    // 수강 과목 여러개 추가
     @PostMapping("/take/new")
     @Operation(summary = "수강과목 추가 API", description =
             "request]\n param : userid,\nbody : 수업id, 수강학기, 성적\n" +
@@ -129,6 +129,7 @@ public class TakeController {
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam Long memberId) {
+        log.info("TakeController : [get] /api/v1/courses/untake");
         TakeResponseDTO.UntakenCourseListDTO untakenCourseListDTO = takeService.findUntakenList(memberId);
 
         return ApiResponse.onSuccess(untakenCourseListDTO);
