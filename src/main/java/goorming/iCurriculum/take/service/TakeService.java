@@ -9,6 +9,7 @@ import goorming.iCurriculum.essentialcourse.EssentialCourse;
 import goorming.iCurriculum.essentialcourse.EssentialCourseRepository;
 import goorming.iCurriculum.member.Member;
 import goorming.iCurriculum.member.MemberRepository;
+import goorming.iCurriculum.take.entity.Grade;
 import goorming.iCurriculum.take.entity.Take;
 import goorming.iCurriculum.take.exception.TakeException;
 import goorming.iCurriculum.take.repository.TakeRepository;
@@ -21,8 +22,10 @@ import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -53,10 +56,23 @@ public class TakeService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
-        // 수강하려는 과목들의 ID 리스트 생성
-        List<Long> courseIdList = createTakeListDTO.getTakeCourseDTOList().stream()
+        // 수강하려는 과목들의 ID 리스트
+        List<Long> courseIdList = createTakeListDTO.getCreateTakeDTOList()
+                .stream()
                 .map(TakeRequestDTO.CreateTakeDTO::getCourseId)
                 .collect(Collectors.toList());
+
+        // 이미 수강한 과목들의 과목 ID 리스트
+        List<Long> takenCourseIdList = member.getTakeList().stream()
+                .map(take -> take.getCourse().getId()).toList();
+
+        // 교집합 구하기
+        Set<Long> courseIdSet = new HashSet<>(courseIdList);
+        courseIdSet.retainAll(takenCourseIdList);
+
+        if(!courseIdSet.isEmpty()){
+            throw new TakeException(ErrorStatus.TAKE_DUPLICATED);
+        }
 
         // courseIdList에 해당하는 과목 리스트를 데이터베이스에서 조회
         List<Course> courseList = courseRepository.findCoursesByIds(courseIdList);
@@ -68,7 +84,7 @@ public class TakeService {
 
         List<Take> takeList = new ArrayList<>();
         // 각 createTakeDTO와 course를 매핑하고, Take 객체를 생성 및 저장
-        createTakeListDTO.getTakeCourseDTOList().stream()
+        createTakeListDTO.getCreateTakeDTOList().stream()
                 .flatMap(createTakeDTO -> courseList.stream()
                         .filter(course -> course.getId().equals(createTakeDTO.getCourseId()))
                         .map(course -> {
@@ -90,7 +106,7 @@ public class TakeService {
                 () -> new TakeException(ErrorStatus.TAKE_NOT_FOUND));
 
         // 수강 과목 정보 업데이트
-        take.update(updateTakenCourseDTO.getTakenTerm(), updateTakenCourseDTO.getGrade());
+        take.update(updateTakenCourseDTO.getTakenTerm(), Grade.getGrade(updateTakenCourseDTO.getGrade()));
 
         return TakeConverter.convertTake(take);
     }
