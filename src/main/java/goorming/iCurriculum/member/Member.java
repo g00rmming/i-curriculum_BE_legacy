@@ -11,15 +11,13 @@ import jakarta.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member extends BaseEntity {
@@ -32,7 +30,7 @@ public class Member extends BaseEntity {
     @Length(min = 4, max = 20)
     private String clientId;
 
-    @Length(min = 8, max = 20)
+    @Length(min = 8)
     private String password;
 
     @Length(max = 20)
