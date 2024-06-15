@@ -1,8 +1,8 @@
 package goorming.iCurriculum.take.entity;
 
 import goorming.iCurriculum.common.BaseEntity;
-import goorming.iCurriculum.course.Category;
-import goorming.iCurriculum.course.Course;
+import goorming.iCurriculum.course.entity.Category;
+import goorming.iCurriculum.course.entity.Course;
 import goorming.iCurriculum.member.Member;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

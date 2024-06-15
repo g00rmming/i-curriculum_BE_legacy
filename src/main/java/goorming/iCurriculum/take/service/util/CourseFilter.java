@@ -1,7 +1,7 @@
 package goorming.iCurriculum.take.service.util;
 
-import goorming.iCurriculum.course.Category;
-import goorming.iCurriculum.course.Course;
+import goorming.iCurriculum.course.entity.Category;
+import goorming.iCurriculum.course.entity.Course;
 import goorming.iCurriculum.essentialcourse.EssentialCourse;
 import goorming.iCurriculum.member.Member;
 import java.util.Arrays;

@@ -24,6 +24,7 @@ public enum ErrorStatus implements BaseErrorCode {
 
     //수업
     COURSE_NOT_FOUND(HttpStatus.BAD_REQUEST, "COURSE4001", "수업이 존재하지 않습니다."),
+    COURSE_BINDING_FAIL(HttpStatus.BAD_REQUEST, "COURSE4002","파라미터 바인딩 실패")
 
 
     ;
