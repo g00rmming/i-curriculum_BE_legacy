@@ -64,18 +64,18 @@ public class TakeResponseDTO {
         private Double majorGrade;
         private Double previousTotalGrade;
         private Double previousMajorGrade;
-        private TakenCategoryDTO majorEssentialDTO;
-        private TakenCategoryDTO majorSelectiveDTO;
-        private TakenCategoryDTO generalEssentialDTO;
-        private TakenCategoryDTO generalSelectiveDTO;
+        private TakenCategoryDTO takenMajorDTO;
+        private TakenCategoryDTO takenGeneralDTO;
         private GeneralCoreDTO generalCoreDTO;
     }
+
     @Getter
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
     public static class TakenCategoryDTO{
-        private Integer takenCredit;
+        private Integer takenEssentialCredit;
+        private Integer takenSelectiveCredit;
         private List<UntakenCourseDTO> untakenTop5CourseDTOList;
     }
     @Getter
@@ -83,7 +83,6 @@ public class TakeResponseDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class GeneralCoreDTO{
-        private TakenCategoryDTO takenCategoryDTO;
         private Integer takeOne;
         private Integer takeTwo;
         private Integer takeThree;
@@ -91,5 +90,7 @@ public class TakeResponseDTO {
         private Integer takeFive;
         private Integer takeSix;
         private Integer takeCreative;
+        private Integer totalCredit;
+        private List<UntakenCourseDTO> untakenTop5CourseDTOList;
     }
 }

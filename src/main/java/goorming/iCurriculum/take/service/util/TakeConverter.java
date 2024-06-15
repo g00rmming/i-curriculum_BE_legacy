@@ -7,6 +7,7 @@ import goorming.iCurriculum.take.entity.Grade;
 import goorming.iCurriculum.take.entity.Take;
 import goorming.iCurriculum.take.entity.dto.TakeRequestDTO;
 import goorming.iCurriculum.take.entity.dto.TakeResponseDTO;
+import goorming.iCurriculum.take.entity.dto.TakeResponseDTO.UntakenCourseDTO;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,18 +54,18 @@ public class TakeConverter {
                 .build();
     }
 
-    public static TakeResponseDTO.TakenCategoryDTO convertPersonalCategoryCourseList(Integer totalCredit,
+    public static TakeResponseDTO.TakenCategoryDTO convertPersonalCategoryCourseList(Integer essentialCredit,Integer selectiveCredit,
                                                                                      List<TakeResponseDTO.UntakenCourseDTO> untakenTop5CourseList) {
         return TakeResponseDTO.TakenCategoryDTO.builder()
-                .takenCredit(totalCredit)
+                .takenEssentialCredit(essentialCredit)
+                .takenSelectiveCredit(selectiveCredit)
                 .untakenTop5CourseDTOList(untakenTop5CourseList)
                 .build();
     }
 
     public static TakeResponseDTO.GeneralCoreDTO convertPersonalGeneralCoreCourse(
-            TakeResponseDTO.TakenCategoryDTO takenCategoryDTO, List<Integer> takeGeneralCoreCategory) {
+            List<Integer> takeGeneralCoreCategory, List<UntakenCourseDTO> untakenTop5CourseDTOList) {
         return TakeResponseDTO.GeneralCoreDTO.builder()
-                .takenCategoryDTO(takenCategoryDTO)
                 .takeOne(takeGeneralCoreCategory.get(0))
                 .takeTwo(takeGeneralCoreCategory.get(1))
                 .takeThree(takeGeneralCoreCategory.get(2))
@@ -72,15 +73,15 @@ public class TakeConverter {
                 .takeFive(takeGeneralCoreCategory.get(4))
                 .takeSix(takeGeneralCoreCategory.get(5))
                 .takeCreative(takeGeneralCoreCategory.get(6))
+                .totalCredit(takeGeneralCoreCategory.stream().mapToInt(Integer::intValue).sum())
+                .untakenTop5CourseDTOList(untakenTop5CourseDTOList)
                 .build();
     }
 
     public static TakeResponseDTO.DashboardDTO convertToMemberStats(
             List<Take> takeList,
-            TakeResponseDTO.TakenCategoryDTO majorEssentialDTO,
-            TakeResponseDTO.TakenCategoryDTO majorSelectiveDTO,
-            TakeResponseDTO.TakenCategoryDTO generalEssentialDTO,
-            TakeResponseDTO.TakenCategoryDTO generalSelectiveDTO,
+            TakeResponseDTO.TakenCategoryDTO takenMajorDTO,
+            TakeResponseDTO.TakenCategoryDTO takenGeneralDTO,
             TakeResponseDTO.GeneralCoreDTO generalCoreDTO
     ) {
         Integer currentTerm = takeList.stream()
@@ -120,10 +121,8 @@ public class TakeConverter {
                         .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급 점수를 double로 매핑
                         .average() // 평균 계산
                         .orElse(0.0))
-                .majorEssentialDTO(majorEssentialDTO)
-                .majorSelectiveDTO(majorSelectiveDTO)
-                .generalEssentialDTO(generalEssentialDTO)
-                .generalSelectiveDTO(generalSelectiveDTO)
+                .takenMajorDTO(takenMajorDTO)
+                .takenGeneralDTO(takenGeneralDTO)
                 .generalCoreDTO(generalCoreDTO)
                 .build();
     }
