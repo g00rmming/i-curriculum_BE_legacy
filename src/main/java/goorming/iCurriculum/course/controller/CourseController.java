@@ -45,7 +45,7 @@ public class CourseController {
             @RequestBody @Valid CourseRequestDTO.CreateCourseListDTO createCourseListDTO,
             BindingResult bindingResult) {
 
-        log.info("enter TakeController : [post] /api/v1/courses/take/new");
+        log.info("enter TakeController : [post] /api/v1/courses/new");
         if (bindingResult.hasErrors()) {
             throw new CourseException(ErrorStatus.COURSE_BINDING_FAIL);
         }

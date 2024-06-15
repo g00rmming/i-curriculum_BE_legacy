@@ -134,7 +134,7 @@ public class TakeConverter {
                 .takenTerm(takeDTO.getTakenTerm())
                 .course(course)
                 .member(member)
-                .category(Category.getCategory(takeDTO.getCategory()))
+                .category(Category.getCategoryByName(takeDTO.getCategory()))
                 .build();
     }
 }

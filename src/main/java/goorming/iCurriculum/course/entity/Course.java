@@ -2,6 +2,8 @@ package goorming.iCurriculum.course.entity;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
+import goorming.iCurriculum.essentialcourse.EssentialCourse;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,8 +12,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,7 +34,7 @@ public class Course extends BaseEntity {
     @Column(name = "course_id")
     private Long id;
 
-    @Length(max = 3, min = 3)
+    @Length(max = 7, min = 7)
     private String code;
 
     private String name;
@@ -52,11 +56,15 @@ public class Course extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
-    public void takeThisCourse(){
+
+    @OneToMany(mappedBy = "course", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<EssentialCourse> essentialCourseList;
+
+    public void takeThisCourse() {
         takenNumber++;
     }
 
-    public void dropThisCourse(){
+    public void dropThisCourse() {
         takenNumber--;
     }
 

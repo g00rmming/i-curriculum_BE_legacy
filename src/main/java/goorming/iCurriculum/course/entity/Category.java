@@ -10,7 +10,7 @@ public enum Category {
     MAJOR_ESSENTIAL("전공필수"),
     MAJOR_SELECTIVE("전공선택"),
     GENERAL_ESSENTIAL("교양필수"),
-    GENERAL_SELECTIVE("일반교양"),
+    GENERAL_SELECTIVE("교양선택"),
     GENERAL_CORE_ONE("핵심교양 1"),
     GENERAL_CORE_TWO("핵심교양 2"),
     GENERAL_CORE_THREE("핵심교양 3"),
@@ -21,7 +21,7 @@ public enum Category {
     ;
     private final String name;
 
-    public static Category getCategory(String name) {
+    public static Category getCategoryByName(String name) {
         return Arrays.stream(Category.values())
                 .filter(grade -> grade.getName().equals(name))
                 .findFirst()

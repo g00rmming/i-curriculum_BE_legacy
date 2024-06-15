@@ -1,6 +1,8 @@
 package goorming.iCurriculum.course.entity.dto;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,20 +13,27 @@ public class CourseRequestDTO {
 
     @Getter
     @Builder
-    public static class CreateCourseDTO{
+    public static class CreateCourseDTO {
         String deptName;
+
         String courseCode;
-        String courseName;
-        Integer level;
+
+        String name;
+
+        Integer grade;
+
         Integer credit;
-        String categoryName;
+
+        String category;
+
+        String deptCode;
     }
 
     @Getter
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class CreateCourseListDTO{
+    public static class CreateCourseListDTO {
         String deptName;
         List<@Valid CreateCourseDTO> createCourseDTOList;
     }

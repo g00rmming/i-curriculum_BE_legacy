@@ -267,7 +267,7 @@ public class TakeServiceImpl implements TakeService{
     private List<TakeResponseDTO.UntakenCourseDTO> searchByCategory(
             List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList, Category category) {
         return untakenCourseDTOList.stream()
-                .filter(untakenCourseDTO -> Category.getCategory(untakenCourseDTO.getCategoryName())
+                .filter(untakenCourseDTO -> Category.getCategoryByName(untakenCourseDTO.getCategoryName())
                         .equals(category))
                 .toList();
     }

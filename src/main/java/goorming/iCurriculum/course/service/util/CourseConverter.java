@@ -7,12 +7,13 @@ import goorming.iCurriculum.department.Department;
 
 public class CourseConverter {
     public static Course toCourse(CourseRequestDTO.CreateCourseDTO createCourseDTO, Department department) {
+        System.out.println(createCourseDTO.getCourseCode());
         return Course.builder()
-                .name(createCourseDTO.getCourseName())
+                .name(createCourseDTO.getName())
                 .credit(createCourseDTO.getCredit())
-                .level(createCourseDTO.getLevel())
-                .category(Category.getCategory(
-                        getCategory(createCourseDTO.getCourseCode(), createCourseDTO.getCategoryName())))
+                .level(createCourseDTO.getGrade())
+                .category(Category.getCategoryByName(
+                        parseCategory(createCourseDTO.getCourseCode(), createCourseDTO.getCategory())))
                 .code(createCourseDTO.getCourseCode())
                 .department(department)
                 .isOpen(true)
@@ -20,9 +21,12 @@ public class CourseConverter {
                 .build();
     }
 
-    private static String getCategory(String courseCode, String category) {
-        if (category.equals("핵심교양")) {
-            category = category + " " + courseCode.charAt(3);
+    private static String parseCategory(String courseCode, String category) {
+        if (courseCode.contains("GED")) {
+            return "핵심교양 " + courseCode.charAt(3);
+        }
+        if (courseCode.contains("GEE") && courseCode.charAt(3) == '4') {
+            return "창의영역";
         }
         return category;
     }

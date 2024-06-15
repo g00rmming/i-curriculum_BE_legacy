@@ -28,7 +28,7 @@ public class CourseService {
     public void saveCourse(CourseRequestDTO.CreateCourseListDTO createCourseListDTO) {
         List<Course> courseList = createCourseListDTO.getCreateCourseDTOList().stream()
                 .map(createCourseDTO -> CourseConverter.toCourse(createCourseDTO, getDepartment(
-                        createCourseDTO.getCourseCode())))
+                        createCourseDTO.getDeptCode())))
                 .toList();
         courseRepository.saveAll(courseList);
 
@@ -37,7 +37,10 @@ public class CourseService {
     }
 
     private Department getDepartment(String deptCode) {
-        return departmentRepository.findDepartmentByCode(deptCode);
+        System.out.println(deptCode);
+        Department department = departmentRepository.findDepartmentByCode(deptCode);
+        System.out.println(department.getCode());
+        return department;
     }
 
     private void saveEssentialCourse(List<Course> courseList, Department department) {
