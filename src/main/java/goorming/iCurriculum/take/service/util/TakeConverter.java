@@ -1,7 +1,7 @@
 package goorming.iCurriculum.take.service.util;
 
-import goorming.iCurriculum.course.Category;
-import goorming.iCurriculum.course.Course;
+import goorming.iCurriculum.course.entity.Category;
+import goorming.iCurriculum.course.entity.Course;
 import goorming.iCurriculum.member.Member;
 import goorming.iCurriculum.take.entity.Grade;
 import goorming.iCurriculum.take.entity.Take;
@@ -98,13 +98,13 @@ public class TakeConverter {
                         .sum())
                 .totalGrade(takeList.stream()
                         .filter(take -> !take.getGrade().equals(Grade.PASS))
-                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급을 double로 매핑
+                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 성적을 double로 매핑
                         .average() // 평균 계산
                         .orElse(0.0))
                 .majorGrade(takeList.stream()
                         .filter(take -> take.getCategory().equals(Category.MAJOR_ESSENTIAL)
                                 || take.getCategory().equals(Category.MAJOR_SELECTIVE))
-                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 등급 점수를 double로 매핑
+                        .mapToDouble(take -> take.getGrade().getScore()) // 각 Take 객체의 성적을 double로 매핑
                         .average() // 평균 계산
                         .orElse(0.0))
                 .previousTotalGrade(takeList.stream()

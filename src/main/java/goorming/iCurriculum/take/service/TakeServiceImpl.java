@@ -2,9 +2,9 @@ package goorming.iCurriculum.take.service;
 
 import goorming.iCurriculum.common.code.status.ErrorStatus;
 import goorming.iCurriculum.common.exception.GeneralException;
-import goorming.iCurriculum.course.Category;
-import goorming.iCurriculum.course.Course;
-import goorming.iCurriculum.course.CourseRepository;
+import goorming.iCurriculum.course.entity.Category;
+import goorming.iCurriculum.course.entity.Course;
+import goorming.iCurriculum.course.repository.CourseRepository;
 import goorming.iCurriculum.essentialcourse.EssentialCourse;
 import goorming.iCurriculum.essentialcourse.EssentialCourseRepository;
 import goorming.iCurriculum.member.Member;
