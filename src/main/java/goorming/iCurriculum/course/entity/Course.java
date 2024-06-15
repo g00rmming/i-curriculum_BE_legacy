@@ -1,4 +1,4 @@
-package goorming.iCurriculum.course;
+package goorming.iCurriculum.course.entity;
 
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.department.Department;
@@ -30,7 +30,7 @@ public class Course extends BaseEntity {
     @Column(name = "course_id")
     private Long id;
 
-    @Length(max = 7, min = 7)
+    @Length(max = 3, min = 3)
     private String code;
 
     private String name;

@@ -1,4 +1,4 @@
-package goorming.iCurriculum.course;
+package goorming.iCurriculum.course.entity;
 
 import java.util.Arrays;
 import lombok.Getter;
