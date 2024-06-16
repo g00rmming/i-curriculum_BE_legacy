@@ -1,5 +1,7 @@
 package goorming.iCurriculum.login.controller;
 
+import goorming.iCurriculum.common.code.status.ErrorStatus;
+import goorming.iCurriculum.login.exception.TokenException;
 import goorming.iCurriculum.login.jwt.JWTUtil;
 import goorming.iCurriculum.login.service.TokenService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,16 +20,16 @@ public class ReissueController {
     private final TokenService tokenService;
 
     @PostMapping("/reissue")
-    public ResponseEntity<?> relissue(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<?> reissue(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = tokenService.extractResfreshToken(request);
         if (refreshToken == null){
-            return new ResponseEntity<>("refresh token not found", HttpStatus.BAD_REQUEST); // 400
+            throw new TokenException(ErrorStatus.REFRESH_TOKEN_NOT_FOUND);
         }
         if (!tokenService.isValidRefreshToken(refreshToken)){
-            return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+            throw new TokenException(ErrorStatus.REFRESH_TOKEN_EXPIRED);
         }
         if (!tokenService.isExist(refreshToken)){
-            return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+            throw new TokenException(ErrorStatus.REFRESH_TOKEN_IS_EXIST);
         }
 
         //새로운 토큰 생성
