@@ -5,11 +5,10 @@ import goorming.iCurriculum.department.DepartmentRepository;
 import goorming.iCurriculum.member.Member;
 import goorming.iCurriculum.member.MemberRepository;
 import goorming.iCurriculum.member.RoleType;
-import goorming.iCurriculum.member.controller.MemberController;
 import goorming.iCurriculum.member.converter.MemberConverter;
 import goorming.iCurriculum.member.dto.MemberRequestDTO;
-import goorming.iCurriculum.member.dto.MemberResponseDTO;
 import lombok.Data;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,19 +20,21 @@ public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
     private final DepartmentRepository departmentRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinMemberDTO request) {
-        String depatment_name = request.getDepartment_name();
-        Department department = departmentRepository.findDepartmentByName(depatment_name);
-        System.out.println(department.getName());
+        Department department = departmentRepository.findDepartmentByName(request.getDepartment_name());
         Member newMember = MemberConverter.toMember(request);
+        //사용자의 학과 등록
         newMember.setDepartment(department);
         //일반 회원으로 가입
-        newMember.setRoleType(RoleType.NORMAL);
+        newMember.setRoleType(RoleType.ADMIN);
         newMember.setCreatedAt(LocalDateTime.now());
         newMember.setUpdatedAt(LocalDateTime.now());
+        //비밀번호 brcypt 암호화하여 등록
+        newMember.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
 
         return memberRepository.save(newMember);
     }
