@@ -3,7 +3,10 @@ package goorming.iCurriculum.login.config;
 import goorming.iCurriculum.login.jwt.JWTFilter;
 import goorming.iCurriculum.login.jwt.JWTUtil;
 import goorming.iCurriculum.login.jwt.LoginFilter;
+import goorming.iCurriculum.login.jwt.LogoutFilter;
 import goorming.iCurriculum.login.repository.TokenRepository;
+import goorming.iCurriculum.login.service.TokenService;
+import goorming.iCurriculum.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +29,8 @@ public class SecurityConfig {
     private final AuthenticationConfiguration authenticationConfiguration;
     private final JWTUtil jwtUtil;
     private final TokenRepository tokenRepository;
+    private final TokenService tokenService;
+    private final MemberRepository memberRepository;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -66,18 +71,19 @@ public class SecurityConfig {
 
         //로그인 필터 추가
         httpSecurity
-                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil,tokenRepository),
+                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil,tokenRepository,memberRepository),
                         UsernamePasswordAuthenticationFilter.class);
+
 
         //session 설정 (jwt 사용 -> stateless)
         httpSecurity
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
+        //로그아웃 필터 추가
         httpSecurity
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/")
-                        .permitAll());
+                .addFilterBefore(new LogoutFilter(jwtUtil,tokenService),org.springframework.security.web.authentication.logout.LogoutFilter.class);
+
         return httpSecurity.build();
     }
 }
