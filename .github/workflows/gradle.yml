@@ -49,8 +49,6 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-          echo "AWS_S3_BUCKET=${{ secrets.BUCKET_NAME }}" >> .env
-
           
 
       # AWS 인증 정보 설정
@@ -63,7 +61,7 @@ jobs:
 
       # S3로 압축 파일 업로드
       - name: Upload to S3
-        run: aws deploy push --application-name ${{ secrets.CODEDEPLOY_APP_NAME }} --ignore-hidden-files --s3-location s3://${{ secrets.BUCKET_NAME }}/cicdtest/$GITHUB_SHA.zip --source .
+        run: aws deploy push --application-name ${{ secrets.CODEDEPLOY_APP_NAME }} --ignore-hidden-files --s3-location s3://${{ secrets.BUCKET_NAME }}/$GITHUB_SHA.zip --source .
 
       # AWS CodeDeploy를 사용하여 배포
       - name: Deploy with AWS CodeDeploy
