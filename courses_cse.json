@@ -1,0 +1,1544 @@
+{
+  "deptName": "컴퓨터공학과",
+  "createCourseDTOList": [
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE1103",
+      "name": "객체지향프로그래밍 2",
+      "grade": 1,
+      "credit": 3,
+      "category": "전공필수",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE1101",
+      "name": "객체지향프로그래밍 1",
+      "grade": 1,
+      "credit": 3,
+      "category": "전공필수",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE1112",
+      "name": "컴퓨터공학입문",
+      "grade": 1,
+      "credit": 2,
+      "category": "전공필수",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "MTH1001",
+      "name": "일반수학 1",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양필수",
+      "deptCode": "MTH"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "ACE2104",
+      "name": "통계학",
+      "grade": 2,
+      "credit": 3,
+      "category": "교양필수",
+      "deptCode": "ACE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE2104",
+      "name": "인터넷 프로그래밍",
+      "grade": 2,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE2107",
+      "name": "자바기반응용프로그래밍",
+      "grade": 2,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE2112",
+      "name": "자료구조",
+      "grade": 2,
+      "credit": 4,
+      "category": "전공필수",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE2113",
+      "name": "오픈소스SW개론",
+      "grade": 2,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE3203",
+      "name": "컴퓨터구조론",
+      "grade": 3,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE3206",
+      "name": "오퍼레이팅시스템",
+      "grade": 3,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE3207",
+      "name": "데이터베이스",
+      "grade": 3,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE3212",
+      "name": "컴퓨터 네트워크",
+      "grade": 3,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4204",
+      "name": "알고리즘",
+      "grade": 3,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE3211",
+      "name": "클라우드 컴퓨팅",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4205",
+      "name": "컴퓨터공학 종합설계",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공필수",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4232",
+      "name": "프로그래밍언어 이론",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4307",
+      "name": "멀티미디어 컴퓨팅",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4312",
+      "name": "컴파일러",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4313",
+      "name": "컴퓨터보안",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "CSE4315",
+      "name": "기계학습",
+      "grade": 4,
+      "credit": 3,
+      "category": "전공선택",
+      "deptCode": "CSE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEB1107",
+      "name": "의사소통 영어",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양필수",
+      "deptCode": "GEB"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEB1108",
+      "name": "의사소통 영어: 중급",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양필수",
+      "deptCode": "GEB"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEB1109",
+      "name": "의사소통 영어: 고급",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양필수",
+      "deptCode": "GEB"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3027",
+      "name": "실용영어 L/S",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3028",
+      "name": "실용영어 R/W",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1003",
+      "name": "나눔 프로젝트",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1004",
+      "name": "가치창조를 위한 명저 읽기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1007",
+      "name": "독서세미나 : 인간, 가치, 공존",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1009",
+      "name": "마음을 움직이는 리더십",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1010",
+      "name": "오래된 미래: 동양고전에서의 인간다움",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1011",
+      "name": "SF와 인간의 미래",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1013",
+      "name": "현대 사회의 가치관",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1015",
+      "name": "ESG와 사회적 가치 실천",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2001",
+      "name": "역사 속의 라이벌",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2002",
+      "name": "한국 역사속의 생활과 민속",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2003",
+      "name": "종교와 문화",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2004",
+      "name": "서양철학 : 거인들의 어깨",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2005",
+      "name": "동양철학 : 마르지 않는 샘",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2006",
+      "name": "인간의 성장과 발달",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2007",
+      "name": "현대사회와패션",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2008",
+      "name": "문화유산의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2009",
+      "name": "문화심리",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2010",
+      "name": "축제와 인간사회",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2011",
+      "name": "지역인문학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2013",
+      "name": "독서세미나 : 역사, 사상, 문화",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2015",
+      "name": "동아시아의 역사와 21세기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2016",
+      "name": "그리스신화의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED2018",
+      "name": "전염병의 지리학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3001",
+      "name": "대중문학의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3002",
+      "name": "영화로보는문학세계",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3007",
+      "name": "인문학으로 바라본 마케팅",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3008",
+      "name": "문학과 음악의 만남 : 서정시와 사랑 노래",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3009",
+      "name": "풍경에 관하여 : 인문학과 시각예술의 만남",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3014",
+      "name": "영화와 테크놀러지",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3015",
+      "name": "희곡의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3016",
+      "name": "애니메이션속의 상상과 인식",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3018",
+      "name": "그래픽 디자인 이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3020",
+      "name": "독서세미나 : 문학, 예술, 상징",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED3021",
+      "name": "예술가곡의 가창실습",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4001",
+      "name": "다문화사회와 공존의 인문학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4002",
+      "name": "세계이해를 위한 명저 읽기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4004",
+      "name": "부와 빈곤의 글로벌 지도",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4006",
+      "name": "국제관계학개론",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4007",
+      "name": "동아시아 정치와 철학의 재발견",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4008",
+      "name": "결혼과 부모역할",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4009",
+      "name": "동북아와 한일관계",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4015",
+      "name": "인류문명과 에너지원의 변천사",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5001",
+      "name": "환경과 인간",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5002",
+      "name": "생활 속 바이오이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5003",
+      "name": "생활과과학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5004",
+      "name": "지속가능성을 위한 화학 이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5005",
+      "name": "현대생명과학의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5007",
+      "name": "첨단 바이오테크놀로지의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5010",
+      "name": "신비로운 인체와 맞춤운동",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5011",
+      "name": "독서세미나 : 자연, 생명, 환경",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6001",
+      "name": "프로그래밍과 문제해결",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6002",
+      "name": "초연결사회와 모바일 소프트웨어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6003",
+      "name": "컴퓨팅사고와 데이터분석 기초",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6004",
+      "name": "블록코딩과 AI기초",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6005",
+      "name": "지능정보서비스와 소프트웨어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6007",
+      "name": "디지털 트랜스포메이션과 미래사회의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6008",
+      "name": "4차 산업혁명 기술의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6009",
+      "name": "인공지능과 소프트웨어를 활용한 탄소중립",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED6010",
+      "name": "배터리속 소재 이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1007",
+      "name": "독서세미나 : 인간, 가치, 공존",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED5002",
+      "name": "생활 속 바이오이야기",
+      "grade": 3,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED4011",
+      "name": "지식재산 이론과 실제",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GED1002",
+      "name": "공학윤리와 토론",
+      "grade": 2,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GED"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "AAO2354",
+      "name": "지역사회연계봉사-JEP",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "AAO"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "AAO3004",
+      "name": "지역사회연계봉사-JEP 3",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "AAO"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1001",
+      "name": "명언으로 배우는 한자와 한문",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1002",
+      "name": "동화와 마법의 상상력",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1005",
+      "name": "영화로 보는 한국문화",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1006",
+      "name": "동화의이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1019",
+      "name": "와인으로 보는 세계 문화",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1022",
+      "name": "한중 서사콘텐츠의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1023",
+      "name": "인하특강 : 인하와 인천",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1024",
+      "name": "클래식 음악 감상 실습",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2001",
+      "name": "긍정심리학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2006",
+      "name": "지리와 여행",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2007",
+      "name": "생활 속의 경제 원리",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2015",
+      "name": "기초수학",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2022",
+      "name": "인류의 그림자, 에너지 바로 알기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2024",
+      "name": "미디어와 콘텐츠",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2027",
+      "name": "바다의 불편한 진실",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2028",
+      "name": "브랜드 생성의 원리",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2030",
+      "name": "숲의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3001",
+      "name": "졸업인증실용영어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3002",
+      "name": "자막없이 보는 미국드라마",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3003",
+      "name": "외국인전용초급한국어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3004",
+      "name": "외국인전용중급한국어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3012",
+      "name": "스타트일본어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3016",
+      "name": "초급일본어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3025",
+      "name": "장애인과 함께 하는 삶",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3026",
+      "name": "생활한문",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3030",
+      "name": "외국인전용 한국어 레포트쓰기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3031",
+      "name": "외국인전용 한국어 프레젠테이션",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3032",
+      "name": "외국인전용 미디어 한국어",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3033",
+      "name": "외국인전용 한국과 세계의 비교문화",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4002",
+      "name": "성공 중소기업&#183;벤처기업 특강",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4003",
+      "name": "기업 수요지향기술 종합설계",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4004",
+      "name": "효율적 기술개발과 기업가 정신",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4005",
+      "name": "경영전략과 스타트업",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4006",
+      "name": "기술경영 창업",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4009",
+      "name": "스타트업 이슈 리서치",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4010",
+      "name": "인하특강 : 기업가 정신과 창업",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4013",
+      "name": "인하특강 : CEO와 기업가 정신",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4014",
+      "name": "취업 및 창업 특강",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4015",
+      "name": "사내기업가정신의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4017",
+      "name": "사회혁신과 소셜벤처",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4018",
+      "name": "스타트업시작의 이해",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4019",
+      "name": "스타트업 아이디어 발상",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4020",
+      "name": "창업 시뮬레이션",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4021",
+      "name": "실전 스타트업",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4025",
+      "name": "글로벌 스타트업의 이해",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4026",
+      "name": "성공하는 비즈니스 모델 개발",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE5009",
+      "name": "여대생 진로와 경력개발",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE5014",
+      "name": "인하 스콜라 특강",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE5018",
+      "name": "커리어 디자인",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE5019",
+      "name": "자산관리와 인생재무제표",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6001",
+      "name": "건강한 체중조절을 위한 맞춤영양",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6002",
+      "name": "댄스스포츠",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6003",
+      "name": "수영",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6004",
+      "name": "테니스",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6005",
+      "name": "요가와 명상",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6006",
+      "name": "호신술",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6007",
+      "name": "골프",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6009",
+      "name": "야구소프트볼",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6014",
+      "name": "미술치료로 알아가는 가족이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6015",
+      "name": "피트니스 트레이닝",
+      "grade": 0,
+      "credit": 1,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6016",
+      "name": "금연과 건강한 삶",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6019",
+      "name": "스포츠과학과 건강",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6020",
+      "name": "암세포 이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE6021",
+      "name": "피아노 연주 실습",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE7002",
+      "name": "객체지향 기반 응용 프로그래밍",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE7003",
+      "name": "인공지능 개론 및 프로그래밍 기초",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE7004",
+      "name": "객체지향언어와 SW활용",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE7005",
+      "name": "이차전지와 인공지능",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2005",
+      "name": "경제학의 이해",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2016",
+      "name": "기초물리학",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3013",
+      "name": "대학기초영어",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE3019",
+      "name": "외국인전용 기초한국어",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE7014",
+      "name": "컴퓨터비전 중심 인공지능 입문",
+      "grade": 1,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2003",
+      "name": "Korean Society and Politics",
+      "grade": 2,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE1012",
+      "name": "창작을 위한 글쓰기 실습",
+      "grade": 4,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4022",
+      "name": "취업을 위한 글쓰기 실습",
+      "grade": 4,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE4007",
+      "name": "발명과 특허",
+      "grade": 0,
+      "credit": 2,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE5016",
+      "name": "진로설계 이해와 전략",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2008",
+      "name": "영화 속의 법이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    },
+    {
+      "deptName": "컴퓨터공학과",
+      "courseCode": "GEE2023",
+      "name": "뉴스 속의 법이야기",
+      "grade": 0,
+      "credit": 3,
+      "category": "교양선택",
+      "deptCode": "GEE"
+    }
+  ]
+}
