@@ -31,7 +31,10 @@ dependencies {
 	implementation 'com.h2database:h2'
 
 	//Spring Security
-//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//oauth2
+	implementation 'org.springframework.security:spring-security-oauth2-client'
+	implementation 'org.springframework.security:spring-security-oauth2-jose'
 	//AWS Java SDK for Amazon Cognito
 	implementation group: 'software.amazon.awssdk', name: 'cognitoidentityprovider', version: '2.25.64'
 
@@ -44,9 +47,9 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	//jjwt
-//	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
-//	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
-//	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 }
 
 tasks.named('test') {

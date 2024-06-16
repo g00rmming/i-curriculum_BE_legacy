@@ -11,11 +11,19 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.SignUpRequest;
+import software.amazon.awssdk.services.cognitoidentityprovider.model.SignUpResponse;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/members")
+@Slf4j
 public class MemberController {
     private final MemberService memberService;
 
@@ -41,6 +49,7 @@ public class MemberController {
             "/ 중복이면 TRUE, 중복이 아니면 FALSE 반환")
     @Parameter(name = "username", description = "파라미터로 username 입력")
     public ApiResponse<Boolean> checkClientId(@RequestParam(name = "clientId") String clientId) {
+
         return ApiResponse.onSuccess(memberService.checkClientId(clientId));
     }
 
