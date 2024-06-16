@@ -18,16 +18,16 @@ public class ReissueController {
     private final TokenService tokenService;
 
     @PostMapping("/reissue")
-    public ResponseEntity<?> relissue(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<?> reissue(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = tokenService.extractResfreshToken(request);
         if (refreshToken == null){
-            return new ResponseEntity<>("refresh token not found", HttpStatus.BAD_REQUEST); // 400
+            return new ResponseEntity<>("refresh token not found", HttpStatus.NOT_ACCEPTABLE); // 406
         }
         if (!tokenService.isValidRefreshToken(refreshToken)){
-            return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("invalid refresh token", HttpStatus.NOT_ACCEPTABLE);
         }
         if (!tokenService.isExist(refreshToken)){
-            return new ResponseEntity<>("invalid refresh token", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("invalid refresh token", HttpStatus.NOT_ACCEPTABLE);
         }
 
         //새로운 토큰 생성
