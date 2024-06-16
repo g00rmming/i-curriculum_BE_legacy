@@ -48,7 +48,7 @@ public class TakeController {
                     content = @Content(schema = @Schema(implementation = ApiResponse.class)))
     })
     public ApiResponse<String> createTake(
-            @RequestParam Long memberId, @RequestBody @Valid TakeRequestDTO.CreateTakeListDTO createTakeListDTO,
+            @RequestParam("memberId") Long memberId, @RequestBody @Valid TakeRequestDTO.CreateTakeListDTO createTakeListDTO,
             BindingResult bindingResult) {
 
         log.info("enter TakeController : [post] /api/v1/courses/take/new");
@@ -113,7 +113,7 @@ public class TakeController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<TakeResponseDTO.TakenCourseListDTO> findTakenList(@RequestParam Long memberId) {
+    public ApiResponse<TakeResponseDTO.TakenCourseListDTO> findTakenList(@RequestParam("memberId") Long memberId) {
         TakeResponseDTO.TakenCourseListDTO takenCourseListDTO = takeService.findTakeList(memberId);
 
         return ApiResponse.onSuccess(takenCourseListDTO);
@@ -128,7 +128,7 @@ public class TakeController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
-    public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam Long memberId) {
+    public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam("memberId") Long memberId) {
         log.info("TakeController : [get] /api/v1/courses/untake");
         TakeResponseDTO.UntakenCourseListDTO untakenCourseListDTO = takeService.findUntakenList(memberId);
 
@@ -145,7 +145,7 @@ public class TakeController {
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> searchUntakenCourse(
-            @RequestParam Long memberId,
+            @RequestParam("memberId") Long memberId,
             @RequestBody TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO) {
         TakeResponseDTO.UntakenCourseListDTO searchResultListDTO = takeService.searchUntakenCourses(memberId,
                 searchUntakenCourseDTO);

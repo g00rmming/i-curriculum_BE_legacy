@@ -92,7 +92,7 @@ public class TakeServiceImpl implements TakeService{
                         .filter(course -> course.getId().equals(createTakeDTO.getCourseId()))
                         .map(course -> {
                             Take take = TakeConverter.toTake(createTakeDTO, course, member);
-                            course.takeThisCourse(); // 수강 인원 증가
+                            course.takeThisCourse();// 수강 인원 증가
                             takeList.add(take);
                             return take;
                         })
@@ -173,28 +173,26 @@ public class TakeServiceImpl implements TakeService{
                 = makePersonalizedUntakenCourseList(untakenCourses, member);
 
         // 카테고리별 미이수 과목 리스트 생성
-        TakeResponseDTO.TakenCategoryDTO majorEssentialDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.MAJOR_ESSENTIAL),
-                filterTop5ByCategory(untakenCourseDTOList, Category.MAJOR_ESSENTIAL));
-        TakeResponseDTO.TakenCategoryDTO majorSelectiveDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.MAJOR_SELECTIVE),
-                filterTop5ByCategory(untakenCourseDTOList, Category.MAJOR_SELECTIVE));
-        TakeResponseDTO.TakenCategoryDTO generalEssentialDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.GENERAL_ESSENTIAL),
-                filterTop5ByCategory(untakenCourseDTOList, Category.GENERAL_ESSENTIAL));
-        TakeResponseDTO.TakenCategoryDTO generalSelectiveDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.GENERAL_SELECTIVE),
-                filterTop5ByCategory(untakenCourseDTOList, Category.GENERAL_SELECTIVE));
+        TakeResponseDTO.TakenCategoryDTO takenMajorDTO = TakeConverter.convertPersonalCategoryCourseList(
+                creditByCategory.get(Category.MAJOR_ESSENTIAL),creditByCategory.get(Category.MAJOR_SELECTIVE),
+                filterTop5ByCategories(untakenCourseDTOList,Arrays.asList(
+                        Category.MAJOR_ESSENTIAL,
+                        Category.MAJOR_SELECTIVE
+                )));
+        TakeResponseDTO.TakenCategoryDTO takenGeneralDTO = TakeConverter.convertPersonalCategoryCourseList(
+                creditByCategory.get(Category.GENERAL_ESSENTIAL),creditByCategory.get(Category.GENERAL_SELECTIVE),
+                filterTop5ByCategories(untakenCourseDTOList,Arrays.asList(
+                        Category.GENERAL_ESSENTIAL,
+                        Category.GENERAL_SELECTIVE
+                )));
         TakeResponseDTO.GeneralCoreDTO generalCoreDTO = makePersonalGeneralCoreDTO(creditByCategory,
                 untakenCourseDTOList);
 
         // 멤버의 통계 정보를 반환
         return TakeConverter.convertToMemberStats(
                 takeList,
-                majorEssentialDTO,
-                majorSelectiveDTO,
-                generalEssentialDTO,
-                generalSelectiveDTO,
+                takenMajorDTO,
+                takenGeneralDTO,
                 generalCoreDTO
         );
 
@@ -301,15 +299,12 @@ public class TakeServiceImpl implements TakeService{
                 Category.GENERAL_CREATIVE
         );
 
+
         return TakeConverter.convertPersonalGeneralCoreCourse(
-                TakeConverter.convertPersonalCategoryCourseList(generalCoreCategories.stream()
+                        generalCoreCategories.stream()
                                 .map(creditByCategory::get) // 각 Category에 대한 학점을 가져옴
-                                .mapToInt(Integer::intValue) // Integer를 int로 변환
-                                .sum(),
-                        filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories)),
-                generalCoreCategories.stream()
-                        .map(creditByCategory::get) // 각 Category에 대한 학점을 가져옴
-                        .collect(Collectors.toList()));
+                                .toList(),
+                        filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories));
     }
 
     // 개인화된 미이수 과목 리스트를 생성하는 메서드
@@ -325,15 +320,6 @@ public class TakeServiceImpl implements TakeService{
                 .collect(Collectors.toList());
     }
 
-    // 특정 카테고리의 상위 5개 미이수 과목을 필터링하는 메서드
-    private List<TakeResponseDTO.UntakenCourseDTO> filterTop5ByCategory(
-            List<TakeResponseDTO.UntakenCourseDTO> courses, Category category) {
-        return courses.stream()
-                .filter(course -> course.getCategoryName().equals(category.getName()))
-                .sorted(Comparator.comparingInt(course -> -course.getTakenNumber())) // 수강 인원 내림차순 정렬
-                .limit(5)
-                .collect(Collectors.toList());
-    }
 
     // 여러 카테고리의 상위 5개 미이수 과목을 필터링하는 메서드
     private List<TakeResponseDTO.UntakenCourseDTO> filterTop5ByCategories(
