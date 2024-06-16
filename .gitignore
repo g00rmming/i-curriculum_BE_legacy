@@ -40,5 +40,5 @@ out/
 
 ### property file ###
 ./src/main/resources/appliction.yml
-./src/main/resources/courses_cse.json
+./courses_cse.json
 
