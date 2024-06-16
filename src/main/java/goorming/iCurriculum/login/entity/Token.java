@@ -1,11 +1,12 @@
 package goorming.iCurriculum.login.entity;
 
 import goorming.iCurriculum.common.BaseEntity;
-import goorming.iCurriculum.member.Member;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
