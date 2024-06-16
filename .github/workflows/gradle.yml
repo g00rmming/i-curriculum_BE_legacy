@@ -48,6 +48,7 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "AWS_S3_BUCKET=${{ secrets.BUCKET_NAME }}" >> .env
 
       # 파일 및 폴더를 압축하여 server.zip으로 저장
       - name: Zip distributions
@@ -62,7 +63,7 @@ jobs:
           aws-region: ap-southeast-1
       # S3로 압축 파일 업로드
       - name: Upload to S3
-        run: aws deploy push --application-name ${ secrets.CODEDEPLOY_APP_NAME }} --ignore-hidden-files --s3-location s3://${{ secrets.BUCKET_NAME }}/cicdtest/$GITHUB_SHA.zip --source .
+        run: aws deploy push --application-name ${{ secrets.CODEDEPLOY_APP_NAME }} --ignore-hidden-files --s3-location s3://$AWS_S3_BUCKET/$GITHUB_SHA.zip --source .
 
       # AWS CodeDeploy를 사용하여 배포
       - name: Deploy with AWS CodeDeploy
