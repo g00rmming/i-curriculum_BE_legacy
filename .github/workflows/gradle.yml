@@ -40,10 +40,6 @@ jobs:
         with:
           arguments: clean build -x test
 
-      # 의존성 설치
-      - name: Install dependencies
-        run: npm install
-
       # .env 파일 생성
       - name: create env file
         working-directory: ./
