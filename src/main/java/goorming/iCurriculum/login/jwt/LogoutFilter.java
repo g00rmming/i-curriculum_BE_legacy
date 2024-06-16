@@ -54,7 +54,8 @@ public class LogoutFilter extends GenericFilterBean {
 
         // refresh token null check
         if(refresh == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400
+            response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE); // 406
+            response.getWriter().println("refresh token not found");
             return;
         }
 
@@ -63,14 +64,16 @@ public class LogoutFilter extends GenericFilterBean {
             jwtUtil.isExpired(refresh);
         } catch (Exception e) {
 
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400
+            response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);// 406
+            response.getWriter().println("refresh token expired");
             return;
         }
 
         String category = jwtUtil.getCategory(refresh);
         if( !category.equals("refresh_token")) {
 
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400
+            response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE); // 406
+            response.getWriter().println("invalid refresh token");
             return;
         }
 
@@ -78,7 +81,8 @@ public class LogoutFilter extends GenericFilterBean {
         Boolean isExist = tokenService.isExist(refresh);
         if(!isExist) {
 
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400
+            response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE); // 406
+            response.getWriter().println("refresh token is not exist");
             return;
         }
 
