@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 public class TakeRequestDTO {
     @Getter
     @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class CreateTakeDTO {
         @NotNull
         private Long courseId;
