@@ -47,21 +47,36 @@ public class TakeRequestDTO {
 
     @Getter
     @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class SearchUntakenCourseDTO {
         @NotNull
-        private SearchOptionDTO searchOptionDTO;
+        private @Valid SearchOptionDTO searchOptionDTO;
     }
 
     @Getter
     @Builder
     @AllArgsConstructor
     public static class SearchOptionDTO {
+        @NotNull
         private String courseName;
+
+        @NotNull
         private String courseCode;
+
+        @NotNull
         private Boolean isMajorEssential;
+
+        @NotNull
         private Boolean isMajorSelective;
+
+        @NotNull
         private Boolean isGeneralEssential;
+
+        @NotNull
         private Boolean isGeneralCore;
+
+        @NotNull
         private Boolean isGeneralSelective;
     }
 }

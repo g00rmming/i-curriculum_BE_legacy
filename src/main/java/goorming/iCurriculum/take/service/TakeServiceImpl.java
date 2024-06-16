@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-public class TakeServiceImpl implements TakeService{
+public class TakeServiceImpl implements TakeService {
     private final MemberRepository memberRepository;
     private final CourseRepository courseRepository;
     private final EssentialCourseRepository essentialCourseRepository;
@@ -73,7 +73,7 @@ public class TakeServiceImpl implements TakeService{
         Set<Long> courseIdSet = new HashSet<>(courseIdList);
         courseIdSet.retainAll(takenCourseIdList);
 
-        if(!courseIdSet.isEmpty()){
+        if (!courseIdSet.isEmpty()) {
             throw new TakeException(ErrorStatus.TAKE_DUPLICATED);
         }
 
@@ -174,14 +174,14 @@ public class TakeServiceImpl implements TakeService{
 
         // 카테고리별 미이수 과목 리스트 생성
         TakeResponseDTO.TakenCategoryDTO takenMajorDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.MAJOR_ESSENTIAL),creditByCategory.get(Category.MAJOR_SELECTIVE),
-                filterTop5ByCategories(untakenCourseDTOList,Arrays.asList(
+                creditByCategory.get(Category.MAJOR_ESSENTIAL), creditByCategory.get(Category.MAJOR_SELECTIVE),
+                filterTop5ByCategories(untakenCourseDTOList, Arrays.asList(
                         Category.MAJOR_ESSENTIAL,
                         Category.MAJOR_SELECTIVE
                 )));
         TakeResponseDTO.TakenCategoryDTO takenGeneralDTO = TakeConverter.convertPersonalCategoryCourseList(
-                creditByCategory.get(Category.GENERAL_ESSENTIAL),creditByCategory.get(Category.GENERAL_SELECTIVE),
-                filterTop5ByCategories(untakenCourseDTOList,Arrays.asList(
+                creditByCategory.get(Category.GENERAL_ESSENTIAL), creditByCategory.get(Category.GENERAL_SELECTIVE),
+                filterTop5ByCategories(untakenCourseDTOList, Arrays.asList(
                         Category.GENERAL_ESSENTIAL,
                         Category.GENERAL_SELECTIVE
                 )));
@@ -207,6 +207,7 @@ public class TakeServiceImpl implements TakeService{
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
+        log.info("검색어 : " + searchUntakenCourseDTO.getSearchOptionDTO().getCourseName());
         List<Course> untakenList = findByNameOrCode(searchUntakenCourseDTO,
                 member.getTakeList().stream()
                         .map(take -> take.getCourse().getId())
@@ -299,12 +300,11 @@ public class TakeServiceImpl implements TakeService{
                 Category.GENERAL_CREATIVE
         );
 
-
         return TakeConverter.convertPersonalGeneralCoreCourse(
-                        generalCoreCategories.stream()
-                                .map(creditByCategory::get) // 각 Category에 대한 학점을 가져옴
-                                .toList(),
-                        filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories));
+                generalCoreCategories.stream()
+                        .map(creditByCategory::get) // 각 Category에 대한 학점을 가져옴
+                        .toList(),
+                filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories));
     }
 
     // 개인화된 미이수 과목 리스트를 생성하는 메서드

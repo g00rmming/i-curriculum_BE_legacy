@@ -37,18 +37,24 @@ public class TakeController {
             "request]\n param : userid,\nbody : 수업id, 수강학기, 성적\n" +
                     "response] \n수강id, 수업id, 학수번호, 수업이름, 성적, 수강학년, 학점, 영역")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COURSE4001", description = "수업이 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COURSE4001", description = "수업이 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "TAKE4003", description = "파라미터 바인딩 실패",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "TAKE4003", description = "파라미터 바인딩 실패",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "TAKE4002", description = "중복된 수강내역 입니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "TAKE4002", description = "중복된 수강내역 입니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class)))
     })
     public ApiResponse<String> createTake(
-            @RequestParam("memberId") Long memberId, @RequestBody @Valid TakeRequestDTO.CreateTakeListDTO createTakeListDTO,
+            @RequestParam("memberId") Long memberId,
+            @RequestBody @Valid TakeRequestDTO.CreateTakeListDTO createTakeListDTO,
             BindingResult bindingResult) {
 
         log.info("enter TakeController : [post] /api/v1/courses/take/new");
@@ -67,12 +73,16 @@ public class TakeController {
             "request]\n param : 수강 id,\nbody : 수강학기, 성적\n" +
                     "response]\n수강id, 수업id, 학수번호, 수업이름, 성적, 수강학년, 학점, 영역")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COURSE4001", description = "수업이 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COURSE4001", description = "수업이 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "TAKE4001", description = "수강내역이 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "TAKE4001", description = "수강내역이 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "TAKE4003", description = "파라미터 바인딩 실패",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "TAKE4003", description = "파라미터 바인딩 실패",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.TakenCourseDTO> updateTake(
@@ -93,8 +103,10 @@ public class TakeController {
     @Operation(summary = "수강과목 삭제 API", description =
             "request]\n param : 수강 id")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "TAKE4001", description = "수강내역이 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "TAKE4001", description = "수강내역이 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<String> deleteTake(
@@ -109,8 +121,10 @@ public class TakeController {
     @Operation(summary = "기이수 과목 전체 조회 API", description =
             "request]\n param : 사용자 id")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.TakenCourseListDTO> findTakenList(@RequestParam("memberId") Long memberId) {
@@ -124,8 +138,10 @@ public class TakeController {
     @Operation(summary = "미이수 과목 전체 조회 API", description =
             "request]\n param : 사용자 id")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> findUntakenList(@RequestParam("memberId") Long memberId) {
@@ -136,17 +152,27 @@ public class TakeController {
     }
 
 
-    @GetMapping("/untake/search")
+    @PostMapping("/untake/search")
     @Operation(summary = "미이수 검색 API", description =
             "request]\n param : 사용자 id, 검색 옵션")
     @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "성공."),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "COMMON200", description = "성공."),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse
+                    (responseCode = "MEMBER4001", description = "사용자가 존재하지 않습니다.",
                     content = @Content(schema = @Schema(implementation = ApiResponse.class))),
     })
     public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> searchUntakenCourse(
             @RequestParam("memberId") Long memberId,
-            @RequestBody TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO) {
+            @RequestBody @Valid TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO,
+            BindingResult bindingResult) {
+
+        log.info("search TakeController : [post] /api/v1/untake/search/");
+        if (bindingResult.hasErrors()) {
+            throw new TakeException(ErrorStatus.COURSE_BINDING_FAIL);
+        }
+
+
         TakeResponseDTO.UntakenCourseListDTO searchResultListDTO = takeService.searchUntakenCourses(memberId,
                 searchUntakenCourseDTO);
         return ApiResponse.onSuccess(searchResultListDTO);
