@@ -1,7 +1,10 @@
 package goorming.iCurriculum.login.jwt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import goorming.iCurriculum.login.dto.LoginDTO;
 import goorming.iCurriculum.login.entity.Token;
 import goorming.iCurriculum.login.repository.TokenRepository;
+import goorming.iCurriculum.member.MemberRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -26,13 +29,15 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JWTUtil jwtUtil;
     private final TokenRepository tokenRepository;
+    private final MemberRepository memberRepository;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        String clinetId = obtainUsername(request);
+        String clientId = obtainUsername(request);
         String password = obtainPassword(request);
 
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(clinetId, password, null);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(clientId, password, null);
 
         return authenticationManager.authenticate(authToken);
     }
@@ -54,8 +59,13 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         addToken(clientId, refresh_token, 360 * 240000L);
 
+        Long memberId = memberRepository.findByClientId(clientId).getId();
+
+        LoginDTO loginDTO = new LoginDTO(clientId,memberId);
+        String result = objectMapper.writeValueAsString(loginDTO);
         //응답 설정
         response.setHeader("Authorization", access_token);
+        response.getWriter().write(result);
         response.addCookie(createCookie("refresh_token", refresh_token));
         response.setStatus(HttpStatus.OK.value()); //성공하면 200 상태코드
     }
