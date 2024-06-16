@@ -92,7 +92,7 @@ public class TakeServiceImpl implements TakeService{
                         .filter(course -> course.getId().equals(createTakeDTO.getCourseId()))
                         .map(course -> {
                             Take take = TakeConverter.toTake(createTakeDTO, course, member);
-                            course.takeThisCourse(); // 수강 인원 증가
+                            course.takeThisCourse();// 수강 인원 증가
                             takeList.add(take);
                             return take;
                         })

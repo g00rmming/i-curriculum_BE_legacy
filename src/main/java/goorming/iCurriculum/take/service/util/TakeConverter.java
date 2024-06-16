@@ -44,6 +44,7 @@ public class TakeConverter {
                 .level(course.getLevel())
                 .credit(course.getCredit())
                 .categoryName(category.getName())
+                .takenNumber(course.getTakenNumber())
                 .build();
     }
 
