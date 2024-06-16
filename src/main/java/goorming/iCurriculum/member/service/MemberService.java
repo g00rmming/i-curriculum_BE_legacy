@@ -3,7 +3,6 @@ package goorming.iCurriculum.member.service;
 
 import goorming.iCurriculum.member.Member;
 import goorming.iCurriculum.member.dto.MemberRequestDTO;
-import goorming.iCurriculum.member.dto.MemberResponseDTO;
 
 public interface MemberService {
 
