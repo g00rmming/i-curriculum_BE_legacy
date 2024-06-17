@@ -10,10 +10,10 @@ START_LOG="$ROOT_PATH/start.log"
 NOW=$(date +%c)
 
 echo "[$NOW] $JAR 복사" >> $START_LOG
-cp $ROOT_PATH/build/libs/spring-github-action-1.0.0.jar $JAR
+cp $ROOT_PATH/build/libs/*.jar $JAR
 
 echo "[$NOW] > $JAR 실행" >> $START_LOG
-nohup java -jar $JAR > $APP_LOG 2> $ERROR_LOG &
+nohup java -jar -Dspring.profiles.active=dev $JAR > $APP_LOG 2> $ERROR_LOG &
 
 SERVICE_PID=$(pgrep -f $JAR)
 echo "[$NOW] > 서비스 PID: $SERVICE_PID" >> $START_LOG
