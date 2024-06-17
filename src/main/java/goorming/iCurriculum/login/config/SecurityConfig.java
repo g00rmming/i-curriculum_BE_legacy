@@ -60,7 +60,8 @@ public class SecurityConfig {
         httpSecurity
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers( "/","/swagger-ui/**", "/v3/api-docs/**","/v2/swagger-config").permitAll()
-                        .requestMatchers("/login", "/", "/api/v1/members/join", "/members/**").permitAll()
+                        .requestMatchers("/login", "/api/v1/members/join", "/members/**").permitAll()
+                        .requestMatchers("/login", "/", "/api/v1/members/isExistId", "/members/**").permitAll()
                         .requestMatchers("/reissue").permitAll() //access token 만료 되어도 접근 해야함
                         .anyRequest()
                         .authenticated());
