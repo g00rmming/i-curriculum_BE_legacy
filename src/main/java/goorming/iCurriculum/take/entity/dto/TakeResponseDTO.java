@@ -58,6 +58,7 @@ public class TakeResponseDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class DashboardDTO {
+        private Integer joinYear;
         private Integer totalTakenCredit;
         private Integer majorTakenCredit;
         private Double totalGrade;

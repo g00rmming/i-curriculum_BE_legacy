@@ -83,13 +83,15 @@ public class TakeConverter {
             List<Take> takeList,
             TakeResponseDTO.TakenCategoryDTO takenMajorDTO,
             TakeResponseDTO.TakenCategoryDTO takenGeneralDTO,
-            TakeResponseDTO.GeneralCoreDTO generalCoreDTO
+            TakeResponseDTO.GeneralCoreDTO generalCoreDTO,
+            Integer joinYear
     ) {
         Integer currentTerm = takeList.stream()
                 .mapToInt(Take::getTakenTerm) // takenTerm을 int로 매핑
                 .max() // 최대값 계산
                 .orElse(0);
         return TakeResponseDTO.DashboardDTO.builder()
+                .joinYear(joinYear)
                 .totalTakenCredit(takeList.stream()
                         .mapToInt(take -> take.getCourse().getCredit())
                         .sum())

@@ -193,7 +193,8 @@ public class TakeServiceImpl implements TakeService {
                 takeList,
                 takenMajorDTO,
                 takenGeneralDTO,
-                generalCoreDTO
+                generalCoreDTO,
+                member.getJoinYear()
         );
 
     }
