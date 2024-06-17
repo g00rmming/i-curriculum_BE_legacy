@@ -3,15 +3,14 @@ package goorming.iCurriculum.department;
 import goorming.iCurriculum.common.BaseEntity;
 import goorming.iCurriculum.essentialcourse.EssentialCourse;
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
