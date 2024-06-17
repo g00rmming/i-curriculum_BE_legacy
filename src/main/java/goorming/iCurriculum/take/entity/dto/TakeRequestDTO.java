@@ -45,16 +45,12 @@ public class TakeRequestDTO {
 
         @NotEmpty
         private String grade;
+
+        @NotNull
+        @NotEmpty
+        private String category;
     }
 
-    @Getter
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class SearchUntakenCourseDTO {
-        @NotNull
-        private @Valid SearchOptionDTO searchOptionDTO;
-    }
 
     @Getter
     @Builder
