@@ -278,7 +278,7 @@ public class TakeServiceImpl implements TakeService {
     private Map<Category, Integer> calculateCreditByCategory(List<Take> takeList) {
         Map<Category, Integer> creditByCategory = takeList.stream()
                 .collect(Collectors.groupingBy(
-                        take -> take.getCourse().getCategory(),
+                        Take::getCategory,
                         Collectors.summingInt(take -> take.getCourse().getCredit())
                 ));
 
