@@ -61,8 +61,10 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         Long memberId = memberRepository.findByClientId(clientId).getId();
 
+        //로그인 성공 시 memberId와 clientId를 httpResponse body에 담아서 전달
         LoginDTO loginDTO = new LoginDTO(clientId,memberId);
         String result = objectMapper.writeValueAsString(loginDTO);
+
         //응답 설정
         response.setHeader("Authorization", access_token);
         response.getWriter().write(result);
@@ -74,6 +76,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); //401
+        response.getWriter().write("login fail");
     }
 
     private Cookie createCookie(String key, String value) { //(key값, JWT)

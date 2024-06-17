@@ -39,7 +39,7 @@ public class MemberController {
     }
 
     @GetMapping("/isExistId")
-    @Operation(summary = "username 중복체크 API", description = "중복여부 True/False 반환하는 api" +
+    @Operation(summary = "clidentId 중복체크 API", description = "중복여부 True/False 반환하는 api" +
             "/ 중복이면 TRUE, 중복이 아니면 FALSE 반환")
     @Parameter(name = "username", description = "파라미터로 username 입력")
     public ApiResponse<Boolean> checkClientId(@RequestParam(name = "clientId") String clientId) {

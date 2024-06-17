@@ -40,8 +40,7 @@ public class JWTFilter extends OncePerRequestFilter {
             writer.println("access token expired");
 
             //response status
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            //401 Unauthorized : 클라이언트 오류로 인증 실패시 사용
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);;// 400
             return;
         }
 
@@ -50,7 +49,7 @@ public class JWTFilter extends OncePerRequestFilter {
             PrintWriter writer = response.getWriter();
             writer.println("invalid access token");
 
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); //401
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 400
             return;
         }
 

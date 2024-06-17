@@ -18,18 +18,26 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      #자바환경설정
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
+      #application.yml 파일생성
+      - name: make application.yml
+        run: |
+          mkdir -p ./src/main/resources
+          touch ./src/main/resources/application.yml
+          echo ${{secrets.APPLICATION}} | base64 --decode > ./src/main/resources/application.yml
+          
       # Gradle 실행 권한 부여
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: clean build -x test
 
@@ -47,21 +55,20 @@ jobs:
 
       # AWS 인증 정보 설정
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-southeast-1
-
       # S3로 압축 파일 업로드
       - name: Upload to S3
-        run: aws s3 cp --region ap-southeast-1 ./server.zip s3://${{ secrets.BUCKET_NAME }}/public/
+        run: aws deploy push --application-name ${ secrets.CODEDEPLOY_APP_NAME }} --ignore-hidden-files --s3-location s3://${{ secrets.BUCKET_NAME }}/cicdtest/$GITHUB_SHA.zip --source .
 
       # AWS CodeDeploy를 사용하여 배포
       - name: Deploy with AWS CodeDeploy
         run: |
           aws deploy create-deployment \
             --application-name ${{ secrets.CODEDEPLOY_APP_NAME }} \
-            --deployment-config-name CodeDeployDefault.OneAtATime \
+            --deployment-config-name CodeDeployDefault.AllAtOnce \
             --deployment-group-name ${{ secrets.CODEDEPLOY_DG_NAME }} \
             --s3-location bucket=${{ secrets.BUCKET_NAME }},bundleType=zip,key=public/server.zip
