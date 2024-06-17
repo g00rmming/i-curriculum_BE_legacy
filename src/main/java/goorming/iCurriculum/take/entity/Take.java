@@ -53,9 +53,10 @@ public class Take extends BaseEntity {
     public Integer getTakenLevel() {
         return (takenTerm + 1) / 2;
     }
-    public Take update(Integer takenTerm, Grade grade){
+    public Take update(Integer takenTerm, Grade grade, Category category){
         this.takenTerm = takenTerm;
         this.grade = grade;
+        this.category = category;
         return this;
     }
 

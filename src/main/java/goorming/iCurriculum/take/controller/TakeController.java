@@ -90,7 +90,7 @@ public class TakeController {
             @RequestBody @Valid TakeRequestDTO.UpdateTakenCourseDTO updateTakenCourseDTO, BindingResult bindingResult) {
         TakeResponseDTO.TakenCourseDTO takenCourseDTO = takeService.updateTake(takeId, updateTakenCourseDTO);
 
-        log.info("enter TakeController : [put] /api/v1/courses/take/" + takeId);
+        log.info("enter TakeController : [patch] /api/v1/courses/take/" + takeId);
         if (bindingResult.hasErrors()) {
             throw new TakeException(ErrorStatus.TAKE_BINDING_FAIL);
         }
@@ -164,7 +164,7 @@ public class TakeController {
     })
     public ApiResponse<TakeResponseDTO.UntakenCourseListDTO> searchUntakenCourse(
             @RequestParam("memberId") Long memberId,
-            @RequestBody @Valid TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO,
+            @RequestBody @Valid TakeRequestDTO.SearchOptionDTO searchOptionDTO,
             BindingResult bindingResult) {
 
         log.info("search TakeController : [post] /api/v1/untake/search/");
@@ -174,7 +174,7 @@ public class TakeController {
 
 
         TakeResponseDTO.UntakenCourseListDTO searchResultListDTO = takeService.searchUntakenCourses(memberId,
-                searchUntakenCourseDTO);
+                searchOptionDTO);
         return ApiResponse.onSuccess(searchResultListDTO);
     }
 

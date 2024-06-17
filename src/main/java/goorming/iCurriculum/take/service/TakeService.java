@@ -27,6 +27,6 @@ public interface TakeService {
     TakeResponseDTO.DashboardDTO findMemberStat(Long memberId);
 
     @Transactional
-    TakeResponseDTO.UntakenCourseListDTO searchUntakenCourses(Long memberId, TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO);
+    TakeResponseDTO.UntakenCourseListDTO searchUntakenCourses(Long memberId, TakeRequestDTO.SearchOptionDTO searchUntakenCourseDTO);
 
 }

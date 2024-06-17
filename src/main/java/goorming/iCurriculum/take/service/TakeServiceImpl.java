@@ -111,7 +111,9 @@ public class TakeServiceImpl implements TakeService {
                 () -> new TakeException(ErrorStatus.TAKE_NOT_FOUND));
 
         // 수강 과목 정보 업데이트
-        take.update(updateTakenCourseDTO.getTakenTerm(), Grade.getGrade(updateTakenCourseDTO.getGrade()));
+        take.update(updateTakenCourseDTO.getTakenTerm(), Grade.getGrade(updateTakenCourseDTO.getGrade()),
+                Category.getCategoryByName(
+                        updateTakenCourseDTO.getCategory()));
 
         return TakeConverter.convertTake(take);
     }
@@ -158,7 +160,6 @@ public class TakeServiceImpl implements TakeService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
-
         List<Take> takeList = member.getTakeList();
 
         // 카테고리별 이수 학점 계산
@@ -187,7 +188,7 @@ public class TakeServiceImpl implements TakeService {
                         Category.GENERAL_SELECTIVE
                 )));
         TakeResponseDTO.GeneralCoreDTO generalCoreDTO = makePersonalGeneralCoreDTO(creditByCategory,
-                untakenCourseDTOList,getStandardCredit(member));
+                untakenCourseDTOList, getStandardCredit(member));
 
         // 멤버의 통계 정보를 반환
         return TakeConverter.convertToMemberStats(
@@ -204,31 +205,31 @@ public class TakeServiceImpl implements TakeService {
     @Transactional
     // 미이수 과목을 검색하는 메서드
     public TakeResponseDTO.UntakenCourseListDTO searchUntakenCourses(
-            Long memberId, TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO) {
+            Long memberId, TakeRequestDTO.SearchOptionDTO searchOptionDTO) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
-        log.info("검색어 : " + searchUntakenCourseDTO.getSearchOptionDTO().getCourseName());
-        List<Course> untakenList = findByNameOrCode(searchUntakenCourseDTO,
+        log.info("검색어 : " + searchOptionDTO.getCourseName());
+        List<Course> untakenList = findByNameOrCode(searchOptionDTO,
                 member.getTakeList().stream()
                         .map(take -> take.getCourse().getId())
                         .collect(Collectors.toList()));
 
         List<TakeResponseDTO.UntakenCourseDTO> resultList = searchByCategories(
-                makePersonalizedUntakenCourseList(untakenList, member), searchUntakenCourseDTO);
+                makePersonalizedUntakenCourseList(untakenList, member), searchOptionDTO);
 
         return TakeConverter.convertUntakeList(resultList);
     }
 
     // 이름 또는 코드로 미이수 과목을 검색하는 메서드
-    private List<Course> findByNameOrCode(TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO,
+    private List<Course> findByNameOrCode(TakeRequestDTO.SearchOptionDTO searchUntakenCourseDTO,
                                           List<Long> takenCourseIdList) {
-        if (!searchUntakenCourseDTO.getSearchOptionDTO().getCourseName().isBlank()) {
-            String searchWord = searchUntakenCourseDTO.getSearchOptionDTO().getCourseName();
+        if (!searchUntakenCourseDTO.getCourseName().isBlank()) {
+            String searchWord = searchUntakenCourseDTO.getCourseName();
             return courseRepository.findCourseNotInIdsByCourseName(takenCourseIdList, searchWord);
         }
-        if (!searchUntakenCourseDTO.getSearchOptionDTO().getCourseCode().isBlank()) {
-            String searchWord = searchUntakenCourseDTO.getSearchOptionDTO().getCourseCode();
+        if (!searchUntakenCourseDTO.getCourseCode().isBlank()) {
+            String searchWord = searchUntakenCourseDTO.getCourseCode();
             return courseRepository.findCourseNotInIdsByCourseCode(takenCourseIdList, searchWord);
         }
         return courseRepository.findCoursesNotInIds(takenCourseIdList);
@@ -238,18 +239,18 @@ public class TakeServiceImpl implements TakeService {
     // 카테고리별로 미이수 과목을 검색하는 메서드
     private List<TakeResponseDTO.UntakenCourseDTO> searchByCategories(
             List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList,
-            TakeRequestDTO.SearchUntakenCourseDTO searchUntakenCourseDTO) {
+            TakeRequestDTO.SearchOptionDTO searchOptionDTO) {
         List<TakeResponseDTO.UntakenCourseDTO> resultList = new ArrayList<>();
-        if (searchUntakenCourseDTO.getSearchOptionDTO().getIsMajorEssential()) {
+        if (searchOptionDTO.getIsMajorEssential()) {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.MAJOR_ESSENTIAL));
         }
-        if (searchUntakenCourseDTO.getSearchOptionDTO().getIsMajorSelective()) {
+        if (searchOptionDTO.getIsMajorSelective()) {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.MAJOR_SELECTIVE));
         }
-        if (searchUntakenCourseDTO.getSearchOptionDTO().getIsGeneralEssential()) {
+        if (searchOptionDTO.getIsGeneralEssential()) {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_ESSENTIAL));
         }
-        if (searchUntakenCourseDTO.getSearchOptionDTO().getIsGeneralCore()) {
+        if (searchOptionDTO.getIsGeneralCore()) {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_CORE_ONE));
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_CORE_TWO));
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_CORE_THREE));
@@ -258,7 +259,7 @@ public class TakeServiceImpl implements TakeService {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_CORE_SIX));
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_CREATIVE));
         }
-        if (searchUntakenCourseDTO.getSearchOptionDTO().getIsGeneralSelective()) {
+        if (searchOptionDTO.getIsGeneralSelective()) {
             resultList.addAll(searchByCategory(untakenCourseDTOList, Category.GENERAL_SELECTIVE));
         }
         return resultList;
@@ -291,7 +292,7 @@ public class TakeServiceImpl implements TakeService {
     // 개인화된 교양 과목 DTO를 생성하는 메서드
     private TakeResponseDTO.GeneralCoreDTO makePersonalGeneralCoreDTO(
             Map<Category, Integer> creditByCategory,
-            List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList,Integer standardCredit) {
+            List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList, Integer standardCredit) {
         List<Category> generalCoreCategories = Arrays.asList(
                 Category.GENERAL_CORE_ONE,
                 Category.GENERAL_CORE_TWO,
@@ -337,9 +338,10 @@ public class TakeServiceImpl implements TakeService {
                 .collect(Collectors.toList());
     }
 
-    private Integer getStandardCredit(Member member){
-        if(member.isNotSWConvergence())
+    private Integer getStandardCredit(Member member) {
+        if (member.isNotSWConvergence()) {
             return 9;
+        }
         return 12;
     }
 }
