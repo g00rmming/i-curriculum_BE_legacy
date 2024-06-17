@@ -49,7 +49,7 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-          
+
       # AWS 인증 정보 설정
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
