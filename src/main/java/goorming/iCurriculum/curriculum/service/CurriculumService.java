@@ -32,7 +32,7 @@ public class CurriculumService {
 
         CurriculumTable curriculumTable = curriculumTableRepository.findByDepartmentAndJoinYear(department, joinYear);
         return CurriculumResponseDTO.CurriculumTableDTO.builder()
-                .joinYear(joinYear)
+                .joinYear(curriculumTable.getJoinYear())
                 .url(curriculumTable.getUrl())
                 .build();
     }

@@ -91,6 +91,7 @@ public class TakeResponseDTO {
         private Integer takeSix;
         private Integer takeCreative;
         private Integer totalCredit;
+        private Integer standardCredit;
         private List<UntakenCourseDTO> untakenTop5CourseDTOList;
     }
 }

@@ -55,7 +55,8 @@ public class TakeConverter {
                 .build();
     }
 
-    public static TakeResponseDTO.TakenCategoryDTO convertPersonalCategoryCourseList(Integer essentialCredit,Integer selectiveCredit,
+    public static TakeResponseDTO.TakenCategoryDTO convertPersonalCategoryCourseList(Integer essentialCredit,
+                                                                                     Integer selectiveCredit,
                                                                                      List<TakeResponseDTO.UntakenCourseDTO> untakenTop5CourseList) {
         return TakeResponseDTO.TakenCategoryDTO.builder()
                 .takenEssentialCredit(essentialCredit)
@@ -65,7 +66,8 @@ public class TakeConverter {
     }
 
     public static TakeResponseDTO.GeneralCoreDTO convertPersonalGeneralCoreCourse(
-            List<Integer> takeGeneralCoreCategory, List<UntakenCourseDTO> untakenTop5CourseDTOList) {
+            List<Integer> takeGeneralCoreCategory, List<UntakenCourseDTO> untakenTop5CourseDTOList,
+            Integer standardCredit) {
         return TakeResponseDTO.GeneralCoreDTO.builder()
                 .takeOne(takeGeneralCoreCategory.get(0))
                 .takeTwo(takeGeneralCoreCategory.get(1))
@@ -75,6 +77,7 @@ public class TakeConverter {
                 .takeSix(takeGeneralCoreCategory.get(5))
                 .takeCreative(takeGeneralCoreCategory.get(6))
                 .totalCredit(takeGeneralCoreCategory.stream().mapToInt(Integer::intValue).sum())
+                .standardCredit(standardCredit)
                 .untakenTop5CourseDTOList(untakenTop5CourseDTOList)
                 .build();
     }

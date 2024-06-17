@@ -158,6 +158,7 @@ public class TakeServiceImpl implements TakeService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new GeneralException(ErrorStatus.MEMBER_NOT_FOUND));
 
+
         List<Take> takeList = member.getTakeList();
 
         // 카테고리별 이수 학점 계산
@@ -186,7 +187,7 @@ public class TakeServiceImpl implements TakeService {
                         Category.GENERAL_SELECTIVE
                 )));
         TakeResponseDTO.GeneralCoreDTO generalCoreDTO = makePersonalGeneralCoreDTO(creditByCategory,
-                untakenCourseDTOList);
+                untakenCourseDTOList,getStandardCredit(member));
 
         // 멤버의 통계 정보를 반환
         return TakeConverter.convertToMemberStats(
@@ -232,6 +233,7 @@ public class TakeServiceImpl implements TakeService {
         }
         return courseRepository.findCoursesNotInIds(takenCourseIdList);
     }
+
 
     // 카테고리별로 미이수 과목을 검색하는 메서드
     private List<TakeResponseDTO.UntakenCourseDTO> searchByCategories(
@@ -289,7 +291,7 @@ public class TakeServiceImpl implements TakeService {
     // 개인화된 교양 과목 DTO를 생성하는 메서드
     private TakeResponseDTO.GeneralCoreDTO makePersonalGeneralCoreDTO(
             Map<Category, Integer> creditByCategory,
-            List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList) {
+            List<TakeResponseDTO.UntakenCourseDTO> untakenCourseDTOList,Integer standardCredit) {
         List<Category> generalCoreCategories = Arrays.asList(
                 Category.GENERAL_CORE_ONE,
                 Category.GENERAL_CORE_TWO,
@@ -304,7 +306,9 @@ public class TakeServiceImpl implements TakeService {
                 generalCoreCategories.stream()
                         .map(creditByCategory::get) // 각 Category에 대한 학점을 가져옴
                         .toList(),
-                filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories));
+                filterTop5ByCategories(untakenCourseDTOList, generalCoreCategories),
+                standardCredit
+        );
     }
 
     // 개인화된 미이수 과목 리스트를 생성하는 메서드
@@ -331,5 +335,11 @@ public class TakeServiceImpl implements TakeService {
                 .sorted(Comparator.comparingInt(course -> -course.getTakenNumber())) // 수강 인원 내림차순 정렬
                 .limit(5)
                 .collect(Collectors.toList());
+    }
+
+    private Integer getStandardCredit(Member member){
+        if(member.isNotSWConvergence())
+            return 9;
+        return 12;
     }
 }
