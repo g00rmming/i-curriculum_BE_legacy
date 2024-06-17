@@ -31,6 +31,7 @@ public class SecurityConfig {
     private final TokenRepository tokenRepository;
     private final TokenService tokenService;
     private final MemberRepository memberRepository;
+//    private final CognitoService cognitoService;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -69,16 +70,15 @@ public class SecurityConfig {
         httpSecurity
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class); // loginFilter 이전에 jwtFilter 추가
 
-        //로그인 필터 추가
-        httpSecurity
-                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil,tokenRepository,memberRepository),
-                        UsernamePasswordAuthenticationFilter.class);
-
-
         //session 설정 (jwt 사용 -> stateless)
         httpSecurity
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+
+        //로그인 필터 추가
+        httpSecurity
+                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil,tokenRepository,memberRepository),
+                        UsernamePasswordAuthenticationFilter.class);
 
         //로그아웃 필터 추가
         httpSecurity
@@ -86,4 +86,6 @@ public class SecurityConfig {
 
         return httpSecurity.build();
     }
+
+
 }
