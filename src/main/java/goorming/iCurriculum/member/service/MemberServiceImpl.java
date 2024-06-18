@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService{
         //사용자의 학과 등록
         newMember.setDepartment(department);
         //일반 회원으로 가입
-        newMember.setRoleType(RoleType.ADMIN);
+        newMember.setRoleType(RoleType.NORMAL);
         //비밀번호 brcypt 암호화하여 등록
         newMember.setPassword(bCryptPasswordEncoder.encode(request.getPassword().toLowerCase()));
 
