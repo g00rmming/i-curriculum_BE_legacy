@@ -23,7 +23,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import java.util.Collection;
 import java.util.Collections;
 
 @Configuration
@@ -58,6 +57,7 @@ public class SecurityConfig {
                             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                                 CorsConfiguration configuration = new CorsConfiguration();
 
+                                configuration.setAllowedOrigins(Collections.singletonList("http://localhost:8081"));
                                 configuration.setAllowedOrigins(Collections.singletonList("http://grooming-01-s3.s3-website-ap-southeast-1.amazonaws.com"));
                                 configuration.setAllowedMethods(Collections.singletonList("*"));
                                 configuration.setAllowCredentials(true);
@@ -87,7 +87,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers( "/","/swagger-ui/**", "/v3/api-docs/**","/v2/swagger-config").permitAll()
                         .requestMatchers("/","/login", "/api/v1/members/join", "/members/**").permitAll()
-                        .requestMatchers( "/api/v1/members/isExistId","/api/v1/departments-names", "/members/**").permitAll()
+                        .requestMatchers( "/api/v1/members/isExistId","/api/v1/departments-names","/api/v1/courses/new", "/members/**").permitAll()
                         .requestMatchers("/reissue").permitAll() //access token 만료 되어도 접근 해야함
                         .anyRequest()
                         .authenticated());

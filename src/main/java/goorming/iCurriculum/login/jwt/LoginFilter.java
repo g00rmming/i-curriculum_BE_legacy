@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 
 @RequiredArgsConstructor
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
@@ -34,8 +35,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        String clientId = obtainUsername(request);
-        String password = obtainPassword(request);
+        String clientId = obtainUsername(request).toLowerCase();
+        String password = obtainPassword(request).toLowerCase();
 
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(clientId, password, null);
 
@@ -46,7 +47,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
 
-        String clientId = authentication.getName();
+        String clientId = authentication.getName().toLowerCase();
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
