@@ -12,7 +12,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
                 .allowedOrigins("https://d3rus1qyc0lc4p.cloudfront.net/")
                 .allowedOrigins("http://localhost:8080")
-                .allowedOrigins("http://13.215.224.254:8081")
+                .allowedOrigins("http://13.215.224.254:8082")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);
