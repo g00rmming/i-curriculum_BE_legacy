@@ -57,7 +57,7 @@ public class SecurityConfig {
                             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                                 CorsConfiguration configuration = new CorsConfiguration();
                  
-                                configuration.setAllowedOrigins(Collections.singletonList("https://d3rus1qyc0lc4p.cloudfront.net/"));
+                                configuration.setAllowedOrigins(Collections.singletonList("http://13.215.224.254"));
                                 configuration.setAllowedMethods(Collections.singletonList("*"));
                                 configuration.setAllowCredentials(true);
                                 configuration.setAllowedHeaders(Collections.singletonList("*"));
